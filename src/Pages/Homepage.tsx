@@ -82,10 +82,7 @@ const Homepage = () => {
 
 <div>
   <Swiper 
-style={{
-  '--swiper-navigation-color': '#fff',
-  '--swiper-pagination-color': '#fff',
-}}
+
 
      modules={[ Pagination, EffectFade]}
       spaceBetween={10}
