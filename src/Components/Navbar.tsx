@@ -7,11 +7,11 @@ const Navbar = () => {
                 Home
             </li>
         <li>
-            About
+            Rooms
         </li>
 
 <li>
-    Newsletter
+    Services
 </li>
 <li className="font-semibold text-center text-[18px] flex flex-col">
  <h1 className="font-bold text-[20px]">   Hotel</h1> 
@@ -19,15 +19,15 @@ const Navbar = () => {
  <h3 className="text-sm">  Logo</h3> 
 </li>
 <li>
-    Rooms 
-</li>
-
-<li>
-    Services 
-</li>
-
-<li>
     Gallery 
+</li>
+
+<li>
+    About us
+</li>
+
+<li>
+    Contact 
 </li>
         </ul> 
         </nav>

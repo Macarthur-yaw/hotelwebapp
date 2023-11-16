@@ -1,261 +1,115 @@
-import bg from '../assets/bg.jpg'
-import vectorImg from '../assets/Vector.svg'
+// import Swiper from "swiper";
+import { SwiperSlide,Swiper } from "swiper/react";
+import 'swiper/css'
+import { Navigation,Pagination,A11y,Autoplay,EffectFade } from "swiper/modules";
+import 'swiper/css/bundle'
+import { backgroundPictures } from "../Constant/BackgroundPictures";
+import { motion } from "framer-motion";
+import SearchHostels from "../Components/SearchHostels";
+import HomeCards from "../Components/HomeCards";
+import rooms from '../assets/roomss.jpg'
 import picOne from '../assets/a42e39683e23158d39680fef35ab550f.jpg'
 import picTwo from '../assets/pic2.jpg'
-import rooms from '../assets/roomss.jpg'
+// import rooms from '../assets/roomss.jpg'
 import picThree from '../assets/pic5.jpg'
 import picFour from '../assets/pic4.jpg'
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import { easeInOut } from 'framer-motion/dom'
-import picFive from '../assets/pexels-colon-freld-2373201.jpg'
-import picSix from '../assets/pexels-eduardo-romero-3124079.jpg'
-import picSeven from '../assets/pexels-naim-benjelloun-2029698.jpg'
-import picEight from '../assets/pexels-suhel-vba-3659683.jpg'
-
+import { RoomCards } from "../Components/RoomCards";
 const Homepage = () => {
-    const backgroundPictures=[
-        {id:1,
-        imageUrl:picEight,
-        content:'Discover Extraordinary homes'
-        },
-        {
-            id:2,
-            imageUrl:picFive,
-            content:'Enjoy our services at a fee'
-        },
-        {
-            id:3,
-            imageUrl:picSix,
-            content:'Make the best of every moment'
-        },
-        {
-            id:4,
-            imageUrl:picSeven,
-            content:'We are very best at serving'
-        }
-    ]
-    const[slideIndex,setSlideIndex]=useState<number>(1)
-   
-   useEffect(()=>{
-    const intervalId=setInterval(() => {
-        setSlideIndex((prevIndex) =>
-          prevIndex < backgroundPictures.length ? prevIndex + 1 : 1
-        );
-      }, 8000);
+  return (
+    <div className="">
+      <Swiper
+              
+      
+        modules={[Navigation, Pagination, A11y, Autoplay, EffectFade]}
+        spaceBetween={30}
+        slidesPerView={1}
+        autoplay={{ delay: 7000, disableOnInteraction: false }}
+        effect="fade"
+        pagination={{ clickable: true }}
+      
+      
+      >
+        {backgroundPictures.map((picture) => (
+          <SwiperSlide key={picture.id}>
+            <div className="relative h-screen w-full">
+              <img loading="lazy" src={picture.imageUrl} alt="background" className="h-full w-full object-cover" />
 
-    return () => clearInterval(intervalId);
-   },[backgroundPictures.length])
-    return ( 
-        <div>
-         
-            {backgroundPictures.map((picture)=>(
-            
-            <motion.div
-  initial={{ opacity: 0.8 }}
-  animate={{
-    opacity: picture.id === slideIndex ? 1 : 0.8,
-    transition: { duration: 1, staggerChildren: 0.2, staggerDirection: 1 },
-  }}
-  key={picture.id}
->
-  <motion.div>
-    <img
-      src={picture.imageUrl}
-      loading='lazy'
-      className={`${picture.id === slideIndex ? 'block w-full h-screen' : 'hidden'}`}
-    />
-  </motion.div>
-
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: picture.id === slideIndex ? 1 : 0, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    <span
-      className={`${picture.id === slideIndex ? 'block' : 'hidden'} absolute top-1/2 left-10 text-[35px] md:text-[54px] text-white font-bold w-[40%]`}
-    >
+              <div className="absolute bg-black w-full h-screen top-0 bg-opacity-60">
+                <motion.div
+                  key={picture.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 4 }}
+                  className="absolute w-[70%] flex flex-col gap-4  top-1/2 transform -translate-y-1/2 left-1/2  -translate-x-1/2 "
+                >
+                  <h1 className="text-7xl text-center text-white font-bold">
+                    {picture.Title}
+                  </h1>
+                
+              <span className="">
+  <div className="w-max  mx-auto">
+    <h1
+      className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-white pr-5 text-xl text-white font--semibold">
       {picture.content}
-    </span>
-  </motion.div>
-</motion.div>
-
-
-            ))}
-            {/* <img src={bg} loading='lazy' className='h-screen w-full'/> */}
-
-          
-<div className=''>
-
-        <SearchHostels/>
-            </div>
-<div className='mt-20 flex flex-col bg-gray-100 py-10'>
-    <p className='px-10 font-semibold text-[26px]  text-center'>Our Services</p>
-<div className='flex flex-row p-4 gap-4  '>
-
-<div className='group relative cursor-pointer'>
-  <motion.img
-    initial={{ scale: 1 }}
-    whileHover={{ scale: 1.02 }}
-    transition={{ duration: 0.3, ease: 'easeInOut' }}
-    src={rooms}
-    loading='lazy'
-    className='h-[100%] w-[100%] rounded-2xl'
-  ></motion.img>
-  <span className='absolute bottom-0 py-10 px-4 text-[30px] text-white font-semibold w-[100%] text-center'>
-    Rooms
-  </span>
-
-  <motion.div
-    initial={{ y: 100 }}
-    animate={{ y: 0 }}
-    transition={{ duration: 0.5 }}
-    whileHover={{ y: -10 }}
-    className='hidden group-hover:block p-0 bg-gray-600 text-white border-2 absolute bottom-0 w-[100%]'>
-    <h1>Rooms</h1>
-    <button className='border-2 p-2 rounded-md'>BOOK</button>
-    <button>See more</button>
-  </motion.div>
-</div>
-
-
-
-
-    <div className='grid grid-cols-2 gap-4'>
-        <div className='relative'>
-        <motion.img
-initial={{scale:1}}
-whileHover={{scale:1.02}}
-transition={{duration:0.3,ease:easeInOut}}
-     src={picTwo} loading='lazy' className='rounded-2xl cursor-pointer'>
-        </motion.img>
-        <span className='absolute bottom-0  py-10 px-4 text-[30px] text-white font-semibold w-[100%] text-center'>
-    Dining
-   </span>
-
-        </div>
-
-        <div className='relative'>
-            <motion.img
-initial={{scale:1}}
-whileHover={{scale:1.02}}
-transition={{duration:0.3,ease:easeInOut}}
-     src={picOne} loading='lazy' className='rounded-2xl cursor-pointer'>
-        </motion.img>
-            <span className='absolute bottom-0  py-10 px-4 text-[30px] text-white font-semibold w-[100%] text-center'>
-    Conference
-   </span>
-
-
-        
-        </div>
-
-<div className='relative'>
-    <motion.img
-initial={{scale:1}}
-whileHover={{scale:1.02}}
-transition={{duration:0.3,ease:easeInOut}}
-     src={picFour} loading='lazy' className='rounded-2xl cursor-pointer'>
-        </motion.img>
-    <span className='absolute bottom-0  py-10 px-4 text-[30px] text-white font-semibold w-[100%] text-center'>
-Facilities
-   </span>
-
-</div>
-
-<div className='relative'>
-    <motion.img
-initial={{scale:1}}
-whileHover={{scale:1.02}}
-transition={{duration:0.3,ease:easeInOut}}
-     src={picThree} className='rounded-2xl cursor-pointer'>
-        </motion.img>
-    <span className='absolute bottom-0  py-10 px-4 text-[30px] text-white font-semibold w-[100%] text-center'>
-Wedding Package 
-   </span>
-
-</div>
-
-        </div> 
-        </div>
-        </div>
-        <div className='mt-20'>
-
-        </div>  </div>
-
-     );
-
-    }
- 
-const SearchHostels=()=>{
-    return (
-        <div className='mt-20'>
-<div className='bg-[#E9F3FF] py-8 rounded-xl shadow-sm p-4   w-[85%] mx-auto flex flex-col gap-8 '>
-<span className='text-center flex flex-col gap-2'>
-    <h1 className='text-[32px] font-semibold '>
-        Book a room 
     </h1>
-    <h2 className='text-[#5E5E5E] text-[16px] font-semibold text-center'>
-Discover the perfect space for you! 
-    </h2>
-</span>
-
-<section className='flex flex-row items-end justify-around '>
-    <span className='flex flex-col gap-2'>
-        <h1 className='font-semibold'>Date</h1>
-        <input type='calender' className='w-[140%] p-2 rounded-md'/>
-    </span>
-
-    <span className='flex flex-col gap-2'>
-        <h1 className='font-semibold '>Person</h1>
-        <div className='flex flex-row border-2  bg-white border-white rounded-md w-[100%] p-2 gap-4'>
-<div className='flex flex-row items-center gap-4'>            <div className='flex flex-row gap-2 px-2'>
+  </div>
+  </span>
                 
-<img src={vectorImg} loading='lazy' className='w-[18%]'/>
-Adults
-</div>
+                                </motion.div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-<div>
-    <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-    </select>
+<SearchHostels/>
+
+<section className="mt-20">
+  <div className="flex flex-row p-10 gap-4">
+  <HomeCards imageUrl={rooms} title="Rooms" />
+<div className="grid grid-cols-2 gap-4">
+<HomeCards imageUrl={picTwo} title="Dining" />
+<HomeCards imageUrl={picOne} title="Conference" />
+<HomeCards imageUrl={picFour} title="Facilites" />
+<HomeCards imageUrl={picThree} title="Wedding Package" />
+  
 </div>
 </div>
-
-<div className='flex flex-row items-center gap-4 px-2'>
-<div className='flex flex-row gap-2'>
-                
-                <img src={vectorImg} loading='lazy' className='w-[18%]'/>
-                Children 
-                </div>
-                
-                <div>
-                    <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
-                </div>
-                </div>
-<div>
-
-    </div>
-        </div>
-    </span>
-
-<button className='p-2 font-semibold  bg-blue-400 rounded-md text-white w-[14%]'>BOOK NOW</button>
 </section>
 
+<aside>
+  OUR SUITES
+
+<div>
+  <Swiper 
+style={{
+  '--swiper-navigation-color': '#fff',
+  '--swiper-pagination-color': '#fff',
+}}
+
+     modules={[ Pagination, EffectFade]}
+      spaceBetween={10}
+     slidesPerView={2}
+     effect="fade"
+     pagination={{ clickable: true }}
+  
+  >
+  {RoomCards.map((room)=>( 
+   <SwiperSlide key={room.id}
+
+   > <div className="border-2 " >
+<img src={room.imgUrl} alt="room" className=" h-[400px] object-cover"/>
+   <h1>{room.title}</h1>
+   <h2>{room.content}</h2>
+   <button>VIEW MORE</button>
+      </div></SwiperSlide>
+   ))}</Swiper>
 </div>
 
-        </div>
-    )
+</aside>
+    </div>
+  );
 }
-
 
 
 export default Homepage;
