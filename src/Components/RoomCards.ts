@@ -27,5 +27,6 @@ export const RoomCards=[
         imgUrl:imageFour,
         title:"SUITE",
         content:"lorem ipsum dolor sit amet ",		
-    }
+    },
+    
 ]

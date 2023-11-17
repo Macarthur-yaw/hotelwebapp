@@ -1,112 +1,213 @@
-// import Swiper from "swiper";
-import { SwiperSlide,Swiper } from "swiper/react";
-import 'swiper/css'
-import { Navigation,Pagination,A11y,Autoplay,EffectFade } from "swiper/modules";
-import 'swiper/css/bundle'
 import { backgroundPictures } from "../Constant/BackgroundPictures";
 import { motion } from "framer-motion";
-import SearchHostels from "../Components/SearchHostels";
-import HomeCards from "../Components/HomeCards";
-import rooms from '../assets/roomss.jpg'
-import picOne from '../assets/a42e39683e23158d39680fef35ab550f.jpg'
-import picTwo from '../assets/pic2.jpg'
-// import rooms from '../assets/roomss.jpg'
-import picThree from '../assets/pic5.jpg'
-import picFour from '../assets/pic4.jpg'
 import { RoomCards } from "../Components/RoomCards";
+import { useEffect,useState } from "react";
+import Section from "../Components/Section";
+import AboutSection from "../Components/AboutSection";
+// import {FaLessThan,FaGreaterThan} from 'react-icons/fa'
+import manPic from '../assets/man (2).jpg'
+import { Rooms } from "../Constant/Rooms";
+import { ImageGallery } from "../Constant/ImageGallery";
+import Location from "../Components/Location";
+import SectionFooter from "../Components/SectionFooter";
+import chevronRight from '../assets/chevron-right.png'
 const Homepage = () => {
+  const[slideIndex,setSlideIndex]=useState<number>(1)
+  useEffect(()=>{
+
+    const interval=setInterval(()=>{
+   if(slideIndex<(backgroundPictures.length-1)){
+    setSlideIndex(prev=>prev+1)
+    
+   }
+   else {
+    setSlideIndex(1)
+   }
+    },5000)
+
+    return ()=>clearInterval(interval)
+   
+  },[slideIndex])
+
+  const NextSlide=(id:number)=>()=>{
+    console.log(id);
+    if(id<backgroundPictures.length-1){
+      setSlideIndex(id+1)
+ 
+    }
+    else{
+      setSlideIndex(1)
+    }
+  }
+  const PrevSlide=(id:number)=>()=>{  
+    // setSlideIndex(id-1)
+    if(id===1){
+      setSlideIndex(backgroundPictures.length-1)
+    } else{
+      setSlideIndex(id-1)
+    }
+  }
+  const testimonialData = {
+    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    author: "John Doe",
+    position: "CEO, Company Name",
+    avatar: manPic,
+  };
   return (
     <div className="">
-      <Swiper
-              
-      
-        modules={[Navigation, Pagination, A11y, Autoplay, EffectFade]}
-        spaceBetween={30}
-        slidesPerView={1}
-        autoplay={{ delay: 7000, disableOnInteraction: false }}
-        effect="fade"
-        pagination={{ clickable: true }}
-      
-      
-      >
-        {backgroundPictures.map((picture) => (
-          <SwiperSlide key={picture.id}>
-            <div className="relative h-screen w-full">
-              <img loading="lazy" src={picture.imageUrl} alt="background" className="h-full w-full object-cover" />
+      {backgroundPictures.map((picture) => (
+        <motion.div 
+      initial={{opacity:0.6}}
+      animate={picture.id === slideIndex ? {opacity:1}: {opacity:0.6}}
+        key={picture.id} 
+        transition={{duration:1}}
+        
+        
+        className={`${picture.id === slideIndex ? 'block':'hidden'} mt-4 px-4 flex flex-row justify-around w-full`}>
+       
+       <div className=" ">
+              <div
+                key={picture.id}
+                className="  flex flex-col gap-4  items-start  h-[100%] justify-center px-10 line-clamp-5 "
+              >
+                <h1 className="text-5xl  text-black font-bold">
+                  {picture.Title}
+                </h1>
 
-              <div className="absolute bg-black w-full h-screen top-0 bg-opacity-60">
-                <motion.div
-                  key={picture.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 4 }}
-                  className="absolute w-[70%] flex flex-col gap-4  top-1/2 transform -translate-y-1/2 left-1/2  -translate-x-1/2 "
-                >
-                  <h1 className="text-7xl text-center text-white font-bold">
-                    {picture.Title}
-                  </h1>
-                
-              <span className="">
-  <div className="w-max  mx-auto">
-    <h1
-      className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-white pr-5 text-xl text-white font--semibold">
-      {picture.content}
-    </h1>
-  </div>
-  </span>
-                
-                                </motion.div>
+                <span className="">
+                  <div className="w-max  mx-auto">
+                    <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-black pr-5 text-xl text-black font--semibold">
+                      {picture.content}
+                    </h1>
+                  </div>
+                </span>
+
+                <span className="flex flex-row gap-2   items-center">
+                  <button className="bg-black text-white border-black border-2 shadow-md p-2">Book</button>
+                  <button className="bg-white border-black border-[1px] p-2 text-black shadow-md">Learn More</button>
+                </span>
               </div>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+     
+          <img
+            loading="lazy"
+            src={picture.imageUrl}
+            alt="background"
+            className="  md:w-[600px] md:h-[80vh]"
+          />
+         
+        </motion.div>
+      ))}
 
-<SearchHostels/>
+ 
+      <aside className="mt-20 flex  flex-row-reverse items-center gap-4 p-20">
+      <div className="flex flex-col w-[40%] gap-2 p-2    ">
+<span className="flex flex-col gap-2 ">
+  <h2 className="font-semibold text-[0.8rem]">Luxury</h2>
 
-<section className="mt-20">
-  <div className="flex flex-row p-10 gap-4">
-  <HomeCards imageUrl={rooms} title="Rooms" />
-<div className="grid grid-cols-2 gap-4">
-<HomeCards imageUrl={picTwo} title="Dining" />
-<HomeCards imageUrl={picOne} title="Conference" />
-<HomeCards imageUrl={picFour} title="Facilites" />
-<HomeCards imageUrl={picThree} title="Wedding Package" />
-  
-</div>
-</div>
-</section>
+  <h1 className="font-semibold text-[2.5rem]">Experience the epitome of luxury and comfort</h1>
+</span>
 
-<aside>
-  OUR SUITES
+<span className=" flex flex-col    gap-2">
+  <h2 className="line-clamp-5  font-medium">
+  Our hotel offers a prime location, with breathtaking views and easy access to all the popular attractions. Indulge in our luxury amenities, including a spa, fitness center, and rooftop pool. Enjoy our exclusive services, such as personalized concierge assistance and private dining experiences.
+  </h2>
+  <span className="flex flex-row items-center gap-2">
+  <button className="border-[1px] border-black  p-[4px] font-semibold">BOOK</button>
+  <button className="flex flex-row ">Learn more <img src={chevronRight}/> </button>
+  </span>
+</span>
+      </div>
+
+        <div>
+          {RoomCards.map((room) => (
+            <div key={room.id}
+            
+            className={`${room.id === slideIndex ? 'block':'hidden'} flex flex-row relative`}>
+        
+                <span className="absolute left-0 top-1/2 transform -translate-y-1/2  z-10   px-4">
+                <button  onClick={NextSlide(room.id)} className=" p-2  font-bold text-[30px]    ">{'<'}</button>
+                </span>
+          
+              <motion.img
+              initial={{opacity:0}}
+              animate={room.id === slideIndex ? {opacity:1}: {opacity:0}}
+              transition={{duration:1.5}}
+                src={room.imgUrl}
+                alt="room"
+                className=" md:h-[550px] w-full object-cover"
+              >
+                </motion.img>
+                <span className="absolute right-0 z-10 top-1/2 px-4 transform  -translate-y-1/2">
+                   <button onClick={PrevSlide(room.id)} className=" p-2    font-bold text-[30px]  "> {'>'}  </button>
+
+                   </span>
+
+            </div>
+          ))}
+        </div>
+      </aside>
+
+      <Section/>
+      <div className="flex flex-col gap-12 py-20 items-center mt-10">  
+{/* <h1 className="font-semibold text-[30px]">    What people say    about us</h1>   */}
+     <span className="">  
+     <h1 className="font-bold text-[2.6rem]">   What People say about us</h1>
+     <h3 className="text-sm text-center">These are some of the feedbacks from our clients.</h3>
+     </span>   
+     <div className="flex flex-row mb-20">
+     <AboutSection {...testimonialData}/>
+     <AboutSection {...testimonialData}/>
+     <AboutSection {...testimonialData}/>
+     </div> </div>
 
 <div>
-  <Swiper 
+ <h1 className="text-center font-semibold text-[30px]">
+ OUR ROOMS
+  </h1>  
 
+<div className="grid grid-cols-3 gap-6  w-fit mx-auto">
+{Rooms.map((content)=>(
+    <div key={content.id} className="border-[1px] border-white shadow-md  ">
+      <img src={content.imgUrl} className='md:w-[300px]
+      hover:
+      ' alt=""/>
+      <span className="flex flex-row justify-between py-4 items-center p-2">
+<h2>        {content.title}</h2>
+        <button className="bg-black text-white p-2 text-[0.8rem]">VIEW DETAILS</button>
 
-     modules={[ Pagination, EffectFade]}
-      spaceBetween={10}
-     slidesPerView={2}
-     effect="fade"
-     pagination={{ clickable: true }}
-  
-  >
-  {RoomCards.map((room)=>( 
-   <SwiperSlide key={room.id}
-
-   > <div className="border-2 " >
-<img src={room.imgUrl} alt="room" className=" h-[400px] object-cover"/>
-   <h1>{room.title}</h1>
-   <h2>{room.content}</h2>
-   <button>VIEW MORE</button>
-      </div></SwiperSlide>
-   ))}</Swiper>
+      </span>
+      </div>
+  ))
+}</div>
 </div>
 
-</aside>
+<div className="mt-20">
+<h1 className="text-center font-medium text-[25px] mb-10">OUR GALLERY</h1> 
+<div className="grid grid-cols-3 gap-6  w-fit mx-auto">
+{ImageGallery.map((content)=>(
+    <div key={content.id} className="border-[1px] border-white shadow-md  ">
+      <img src={content.imgUrl} className='md:w-[300px] h-[220px]
+      hover:
+      ' alt=""/>
+      <span className="flex flex-row justify-between py-4 items-center p-2">
+{/* <h2>        {content.title}</h2> */}
+        {/* <button className="bg-black text-white p-2 text-[0.8rem]">VIEW DETAILS</button> */}
+
+      </span>
+      </div>
+  ))
+}</div>
+</div>
+
+<div>
+  <Location/>
+</div>
+<div>
+  <SectionFooter/>
+</div>
     </div>
   );
-}
-
+};
 
 export default Homepage;
