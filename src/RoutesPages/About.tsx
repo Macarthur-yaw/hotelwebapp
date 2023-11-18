@@ -2,7 +2,7 @@
 import bgOne from '../assets/Gallery4.jpg'
 import picOne from '../assets/aboutpic.jpg'
 import picTwo from '../assets/aboutpic1.jpg'
-import picThree from '../assets/aboutpic2.jpg'
+// import picThree from '../assets/aboutpic2.jpg'
 const About = () => {
  
     return ( 
