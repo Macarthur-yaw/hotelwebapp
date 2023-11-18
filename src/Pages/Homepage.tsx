@@ -89,10 +89,10 @@ const Homepage = () => {
               </span>
 
               <span className="flex flex-row gap-2   items-center">
-                <button className="bg-black text-white w-[100%] md:w-[150px] md:text-xl  md:text-normal text-[12px] border-black border-2 shadow-md md:p-2 p-[3px]">
+                <button className="bg-black text-white w-[100px] md:w-[150px] md:text-xl border-black  md:text-normal text-[14px]  border-2 shadow-md md:p-2 p-2">
                   Book
                 </button>
-                <button className="bg-white border-black w-[150px] md:w-[150px] text-[12px] md:text-xl border-[1px] md:p-2 p-[8px]  text-black shadow-md">
+                <button className="bg-white border-black w-[100px] md:w-[150px] text-[14px] md:text-xl border-[1px] md:p-2 p-[8px]  text-black shadow-md">
                   Learn More
                 </button>
               </span>
@@ -106,10 +106,9 @@ const Homepage = () => {
 </div>
      
           <img
-            loading="lazy"
             src={picture.imageUrl}
             alt="background"
-            className="group cursor-pointer     w-full h-screen  "
+            className="group cursor-pointer  object-cover   w-full sm:h-screen h-[100%] "
           />
         </motion.div>
       ))}

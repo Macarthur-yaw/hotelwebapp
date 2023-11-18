@@ -66,7 +66,7 @@ Contact
 )}
 
 </nav>
-<nav className={`${scrollPosition > 100 ? 'bg-white text-black ':'bg-transparent text-white'} flex flex-row fixed w-[100%] p-4 z-20 top-0 md:justify-around justify-between  items-center      border border-gray-300 border-opacity-50 border-solid border-0.5`}>
+<nav className={`${scrollPosition > 100 ? 'bg-white text-black ':'bg-transparent text-white'} absolute flex flex-row sm:fixed w-[100%] p-4 z-20 top-0 md:justify-around justify-between  items-center      border-b border-gray-300 border-opacity-50  border-b-0.5`}>
 <span className="font-semibold text-center text-[18px] flex flex-col">
 <h1 id='heading' className="font-medium text-[30px]">   Hotel</h1> 
 
