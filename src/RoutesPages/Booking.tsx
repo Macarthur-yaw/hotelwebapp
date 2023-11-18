@@ -46,7 +46,7 @@ const Booking = () => {
   };
 
   return (
-    <div className='flex flex-row mt-20'>    <form onSubmit={handleSubmit} className="max-w-md flex flex-col gap-2 mx-auto  mb-20">
+    <div className='flex flex-row mt-20 px-10'>    <form onSubmit={handleSubmit} className="max-w-md flex flex-col gap-2 mx-auto  mb-20">
     <h1 className='text-center font-semibold text-xl'>  Make a Reservation</h1>
       <div className="mb-4">
       
@@ -174,7 +174,9 @@ const Booking = () => {
         </button>
       </div>
     </form>
-<span>
+<span className='border-[1px] w-[25%] p-2   h-fit'>
+ <p>NEED HELP?</p>
+ 
   Incase you need to cancel your booking, please contact us at 
 <p> arthurkevin1260@gmail.com</p> 
   </span>

@@ -4,6 +4,9 @@ import galleryThree from '../assets/Gallery3.jpg';
 import galleryFour from '../assets/Gallery4.jpg';
 import galleryFive from '../assets/Gallery5.jpg';
 import gallerySix from '../assets/Gallery6.jpg';
+import gallerySeven from '../assets/pexels-colon-freld-2373201.jpg'
+import galleryEight from '../assets/pexels-eduardo-romero-3124079.jpg'
+import galleryNine from '../assets/pexels-naim-benjelloun-2029698.jpg'
 interface ImageGallery{
     id:number,
     imgUrl:string
@@ -30,5 +33,14 @@ export const ImageGallery:ImageGallery[]=[
     {
         id:6,
         imgUrl:gallerySix
+    },{
+        id:7,
+        imgUrl:gallerySeven
+    },{
+        id:8,
+        imgUrl:galleryEight
+    },{
+        id:9,
+        imgUrl:galleryNine
     }
 ]

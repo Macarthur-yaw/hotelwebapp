@@ -195,7 +195,7 @@ Find Your Perfect Accomodotion Online Today.
 <div className="mt-20">
 <h1 className="text-center font-medium text-[25px] mb-10">OUR GALLERY</h1> 
 <div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto p-2">
-{ImageGallery.map((content)=>(
+{ImageGallery.slice(0,5).map((content)=>(
     <div key={content.id} className="border-[1px] border-white shadow-md  ">
       <img src={content.imgUrl} className='md:w-[300px] w-full h-[250px]
       hover:

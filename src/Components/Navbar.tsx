@@ -2,6 +2,7 @@ import {FaBars,FaTimes} from 'react-icons/fa'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
 const navigate=useNavigate() 
     const[display,setDisplay]=useState<boolean>(false)
@@ -21,21 +22,26 @@ function changeDisplay(){
     className='left-0  shadow-md z-10 border-t-[1px] p-2 px-4 fixed h-fit w-full bg-white '>
 <ul className="   text-[16px] flex  flex-col justify-between  font-medium  items-center    py-4 "> 
 
-
+<Link to='/'>
 <li>
 Home           
 </li>
+</Link>
 <li>
 Rooms
 </li>
 
+<Link to='/services'>
 <li>
 Services
 </li>
+</Link>
 
+<Link to='/gallery'>
 <li>
 Gallery 
 </li>
+</Link>
 
 <li>
 About us
@@ -56,7 +62,7 @@ Contact
 <h3 className="text-sm">  Logo</h3> 
 </span>
 
-<span onClick={changeDisplay} className='md:hidden'>
+<span onClick={changeDisplay} className='md:hidden text-xl'>
 {display ? <FaTimes/>:<FaBars/>}    
     </span>
 
@@ -64,21 +70,22 @@ Contact
    <ul className="hidden  md:flex md:flex-row items-center gap-10 justify-between md:px-10 px-4 "> 
 
 
-            <li>
+           <Link to='/'> <li>
      Home           
-            </li>
+            </li></Link>
         <li>
             Rooms
         </li>
 
-<li>
+<Link to='/services'><li>
     Services
 </li>
-
+</Link>
+<Link to='/gallery'>
 <li>
     Gallery 
 </li>
-
+</Link>
 <li>
     About us
 </li>
