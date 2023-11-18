@@ -82,15 +82,15 @@ Find Your Perfect Accomodotion Online Today.
 
                 <span className="">
                   <div className="w-max  mx-auto">
-                    <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-black pr-2 text-[12px] text-black font--semibold">
+                    <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-black pr-2 text-[12px] md:text-xl text-black font--semibold">
                       {picture.content}
                     </h1>
                   </div>
                 </span>
 
                 <span className="flex flex-row gap-2   items-center">
-                  <button className="bg-black text-white w-[100%] md:w-auto md:text-normal text-[12px] border-black border-2 shadow-md md:p-2 p-[3px]">Book</button>
-                  <button className="bg-white border-black w-[150px] md:w-auto text-[12px] md:text-normal border-[1px] md:p-2 p-[8px]  text-black shadow-md">Learn More</button>
+                  <button className="bg-black text-white w-[100%] md:w-[150px] md:text-xl  md:text-normal text-[12px] border-black border-2 shadow-md md:p-2 p-[3px]">Book</button>
+                  <button className="bg-white border-black w-[150px] md:w-[150px] text-[12px] md:text-xl border-[1px] md:p-2 p-[8px]  text-black shadow-md">Learn More</button>
                 </span>
               </div>
             </div>

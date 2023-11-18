@@ -1,12 +1,14 @@
 import {FaBars,FaTimes} from 'react-icons/fa'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
- 
+const navigate=useNavigate() 
     const[display,setDisplay]=useState<boolean>(false)
 function changeDisplay(){
     setDisplay(prevState=>!prevState)
 }
+
     return ( 
         <div className="  ">
 <nav className='p-4'>
@@ -54,7 +56,7 @@ Contact
 <h3 className="text-sm">  Logo</h3> 
 </span>
 
-<span onClick={changeDisplay}>
+<span onClick={changeDisplay} className='md:hidden'>
 {display ? <FaTimes/>:<FaBars/>}    
     </span>
 
@@ -85,7 +87,9 @@ Contact
     Contact 
 </li>
         </ul> 
-    <button className=" hidden md:block border-2 p-2 font-semibold bg-black text-[0.8rem] text-white border-black">BOOK US NOW</button>
+    <button
+    onClick={()=>navigate('/booking')}
+    className=" hidden md:block border-2 p-2 font-semibold bg-black text-[0.8rem] text-white border-black">BOOK US NOW</button>
         </nav>
     </div>
      );
