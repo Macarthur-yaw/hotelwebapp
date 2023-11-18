@@ -1,16 +1,11 @@
-import {FaBars,FaTimes} from 'react-icons/fa'
+import {FaBars} from 'react-icons/fa'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import {useContext} from 'react'
-import { OverlayContext } from '../App';
 const Navbar = () => {
-    let overlay=useContext<boolean|null>(OverlayContext)
-    const[overlayState,setOverlayState]=useState<boolean|null >(overlay)
  
     const[display,setDisplay]=useState<boolean>(false)
 function changeDisplay(){
     setDisplay(prevState=>!prevState)
-    overlay=!overlay
 }
     return ( 
         <div className="  ">

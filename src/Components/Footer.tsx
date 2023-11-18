@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-gray-500 text-white px-4 py-12">
       <div className="container mx-auto md:grid grid-cols-1 md:grid-cols-4 gap-16">
 
-<span className="flex flex-col gap-2">
+<span className="flex flex-col md:gap-2">
    <h1> HotelLogo
    </h1>
     <form className="flex items-center">
@@ -22,11 +22,11 @@ const Footer = () => {
               Subscribe
             </button>
           </form>
-          <h2 className="text-2xl font-medium mt-6 mb-4">Subscribe to Our Newsletter</h2>
+          <h2 className="md:text-2xl text-md font-medium mt-6 mb-4">Subscribe to Our Newsletter</h2>
 
     </span>      
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Quick Links</h2>
+          <h2 className="md:text-2xl text-md font-semibold mb-4">Quick Links</h2>
           <ul className="space-y-2">
             <li><a href="/">Home</a></li>
             <li><a href="/rooms">Rooms</a></li>
@@ -37,7 +37,7 @@ const Footer = () => {
 
         {/* Contact Information */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+          <h2 className="md:text-2xl text-md font-semibold mb-4">Contact Us</h2>
           <p>123 Hostel Street</p>
           <p>City, Country</p>
           <p>Email: info@hostel.com</p>
@@ -46,7 +46,7 @@ const Footer = () => {
 
         {/* Social Media and Newsletter */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Connect With Us</h2>
+          <h2 className="md:text-2xl text-md font-semibold mb-4">Connect With Us</h2>
           <div className="flex space-x-4">
             <a href="#" className="text-white hover:text-gray-300"><FaFacebook/></a>
             <a href="#" className="text-white hover:text-gray-300"><FaTwitter/></a>

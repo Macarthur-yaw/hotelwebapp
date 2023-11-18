@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import  { lazy, Suspense } from 'react';
 
 import { backgroundPictures } from "../Constant/BackgroundPictures";
 import { motion } from "framer-motion";
@@ -17,10 +17,7 @@ const SectionFooter = lazy(() => import("../Components/SectionFooter"));
 
 import chevronRight from '../assets/chevron-right.png'
 // import {lazy } from 'react'
-import { useContext } from 'react';
-import { OverlayContext } from '../App';
 const Homepage = () => {
-  const overlay=useContext(OverlayContext)
   const[slideIndex,setSlideIndex]=useState<number>(1)
   useEffect(()=>{
 
@@ -63,7 +60,7 @@ const Homepage = () => {
     avatar: manPic,
   };
   return (
-    <div className={`${overlay ? 'bg-black opacity-25 w-fixed z-10':''}py-20`}>
+    <div className={`py-20`}>
       {backgroundPictures.map((picture) => (
         <motion.div 
       initial={{opacity:0.6}}
