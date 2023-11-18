@@ -8,6 +8,8 @@ import Booking from "./RoutesPages/Booking";
 import Services from "./RoutesPages/Services";
 import Gallery from "./RoutesPages/Gallery";
 import About from "./RoutesPages/About";
+import Rooms from "./RoutesPages/Rooms";
+import Roompage from "./RoutesPages/Roompage";
 // import { Rooms } from "./Constant/Rooms";
 function App() {
   
@@ -21,6 +23,9 @@ function App() {
 <Route path="/gallery" element={<Gallery/>} />
 {/* <Route path="/rooms" element={<Rooms/>}/> */}
 <Route path='/about' element={<About/>}/>
+<Route path="/rooms" element={<Rooms/>}/>
+<Route path="/Rooms/:id" element={<Roompage/>}/>
+
 
 </Routes>        
         <Footer />

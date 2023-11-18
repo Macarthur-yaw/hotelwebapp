@@ -21,7 +21,7 @@ setContentIndex(index)
 initial={{opacity:0.8}}
 animate={image.id === contentIndex ? {opacity:1}: {opacity:0.8}}
 transition={{duration:1}}
-src={image.imgUrl} alt="" className="md:w-[600px]  md:h-[400px] h-[250px]">
+src={image.imgUrl} alt="" className="md:w-[600px] object-cover  md:h-[400px] h-[250px]">
     </motion.img>
 </div>
              ))

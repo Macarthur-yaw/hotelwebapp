@@ -31,17 +31,18 @@ useEffect(()=>{
     transition={{duration:0.5}}
     exit={{y:-100}}
     className={`${scrollPosition > 100 ? 'bg-white z-10 transition-all duration-75':' z-10 bg-transparent text-white'}left-0  shadow-md z-10  p-2 px-4 sm:fixed absolute h-fit w-full  `}>
-<ul className={`${scrollPosition > 100 ? 'text-black':'text-white'}   text-[16px] flex  flex-col justify-between  font-medium  items-center    py-4 `}> 
+<ul className={`${scrollPosition > 100 ? 'text-black':'text-white'}   text-[18px] flex  flex-col justify-between  font-medium  items-center    py-4 `}> 
 
 <Link to='/'>
 <li>
 Home           
 </li>
 </Link>
+<Link to='/rooms'>
 <li>
 Rooms
 </li>
-
+</Link>
 <Link to='/services'>
 <li>
 Services
@@ -84,9 +85,9 @@ Contact
            <Link to='/'> <li>
      Home           
             </li></Link>
-        <li>
+      <Link to='/rooms'>  <li>
             Rooms
-        </li>
+        </li></Link>
 
 <Link to='/services'><li>
     Services

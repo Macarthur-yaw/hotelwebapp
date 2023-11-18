@@ -113,7 +113,7 @@ const Homepage = () => {
         </motion.div>
       ))}
 
-      <aside className=" flex  flex-col md:flex-row-reverse items-center gap-4 md:p-20">
+      <aside className=" flex  flex-col mt-10 md:flex-row-reverse items-center gap-4 md:p-20">
         <div className="flex flex-col md:w-[40%] gap-2 p-2    ">
           <span className="flex flex-col md:gap-2 gap-4  ">
             <h2 className="font-semibold text-[0.8rem]">Luxury</h2>
@@ -215,9 +215,7 @@ const Homepage = () => {
               <img
                 loading="lazy"
                 src={content.imgUrl}
-                className="md:w-[300px]
-      hover:
-      "
+                className="md:w-[400px] object-cover"
                 alt=""
               />
               <span className="flex flex-row justify-between py-4 items-center p-2">
@@ -243,7 +241,7 @@ const Homepage = () => {
             >
               <img
                 src={content.imgUrl}
-                className="md:w-[300px] w-full h-[250px]
+                className="md:w-[400px] object-cover w-full h-[250px]
       hover:
       "
                 alt=""
