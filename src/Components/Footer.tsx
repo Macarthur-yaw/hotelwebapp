@@ -9,11 +9,11 @@ const Footer = () => {
 <span className="flex flex-col md:gap-2">
    <h1> HotelLogo
    </h1>
-    <form className="flex items-center">
+    <form className="flex items-center gap-0">
             <input
               type="email"
               placeholder="Your Email"
-              className="p-2 border  focus:outline-none"
+              className="p-2 border  focus:outline-none rounded-none"
             />
             <button
               type="submit"

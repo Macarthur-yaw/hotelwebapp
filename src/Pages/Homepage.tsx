@@ -77,7 +77,7 @@ const Homepage = () => {
                 className="  flex flex-col gap-4  items-start  md:h-[100%] justify-center md:px-10 py-20 md-py-[1px] line-clamp-5 "
               >
                 <h1 className="md:text-5xl text-5xl   text-black font-bold">
-                  {picture.Title}
+Find Your Perfect Accomodotion Online Today.
                 </h1>
 
                 <span className="">
@@ -89,8 +89,8 @@ const Homepage = () => {
                 </span>
 
                 <span className="flex flex-row gap-2   items-center">
-                  <button className="bg-black text-white w-[40%] md:w-auto md:text-normal text-[12px] border-black border-2 shadow-md md:p-2 p-[3px]">Book</button>
-                  <button className="bg-white border-black w-[90%] md:w-auto text-[12px] md:text-normal border-[1px] md:p-2 p-[3px]  text-black shadow-md">Learn More</button>
+                  <button className="bg-black text-white w-[100%] md:w-auto md:text-normal text-[12px] border-black border-2 shadow-md md:p-2 p-[3px]">Book</button>
+                  <button className="bg-white border-black w-[150px] md:w-auto text-[12px] md:text-normal border-[1px] md:p-2 p-[8px]  text-black shadow-md">Learn More</button>
                 </span>
               </div>
             </div>
@@ -116,10 +116,10 @@ const Homepage = () => {
 
 <span className=" flex flex-col    gap-2">
   <h2 className="line-clamp-5  font-medium">
-  Our hotel offers a prime location, with breathtaking views and easy access to all the popular attractions. Indulge in our luxury amenities, including a spa, fitness center, and rooftop pool. Enjoy our exclusive services, such as personalized concierge assistance and private dining experiences.
+  Our hotel offers a prime location, with breathtaking views and easy access to all the popular attractions.
   </h2>
   <span className="flex flex-row items-center gap-2">
-  <button className="border-[1px] border-black  p-[4px] font-semibold">BOOK</button>
+  <button className="border-[1px] border-black  p-[4px] w-[35%] font-semibold">BOOK</button>
   <button className="flex flex-row ">Learn more <img src={chevronRight}/> </button>
   </span>
 </span>
@@ -194,10 +194,10 @@ const Homepage = () => {
 
 <div className="mt-20">
 <h1 className="text-center font-medium text-[25px] mb-10">OUR GALLERY</h1> 
-<div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto">
+<div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto p-2">
 {ImageGallery.map((content)=>(
     <div key={content.id} className="border-[1px] border-white shadow-md  ">
-      <img src={content.imgUrl} className='md:w-[300px] w-full h-[220px]
+      <img src={content.imgUrl} className='md:w-[300px] w-full h-[250px]
       hover:
       ' alt=""/>
       <span className="flex flex-row justify-between py-4 items-center p-2">

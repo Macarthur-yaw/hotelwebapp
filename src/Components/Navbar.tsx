@@ -1,4 +1,4 @@
-import {FaBars} from 'react-icons/fa'
+import {FaBars,FaTimes} from 'react-icons/fa'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 const Navbar = () => {
@@ -9,15 +9,15 @@ function changeDisplay(){
 }
     return ( 
         <div className="  ">
-<nav>
+<nav className='p-4'>
 {display && (
 <motion.div
-    initial={{x:-100}}
-    animate={{x:0}}
+    initial={{y:-100}}
+    animate={{y:70}}
     transition={{duration:0.5}}
-    exit={{x:-100}}
-    className='top-0 flex items-center flex-col justify-center shadow-md z-20 border-t-[1px] p-2 fixed h-[100%] w-[60%] bg-white '>
-<ul className="  flex text-[13px] p-4 font-medium flex-col  items-center gap-10 justify-between  px-4 "> 
+    exit={{y:-100}}
+    className='left-0  shadow-md z-10 border-t-[1px] p-2 px-4 fixed h-fit w-full bg-white '>
+<ul className="   text-[16px] flex  flex-col justify-between  font-medium  items-center    py-4 "> 
 
 
 <li>
@@ -43,12 +43,11 @@ About us
 Contact 
 </li>
 </ul> 
-    <button className="  block border-2  h-[40px] px-2 font-semibold bg-black md:text-[0.8rem] text-[0.7rem] text-white border-black">BOOK US NOW</button>
     </motion.div>
 )}
 
 </nav>
-<nav className=" flex flex-row fixed w-[100%] z-10 md:justify-around justify-between p-4 items-center   bg-white  shadow-md border-2 border-white">
+<nav className=" flex flex-row fixed w-[100%] z-20 top-0 md:justify-around justify-between p-4 items-center   bg-white  shadow-md border-2 border-white">
 <span className="font-semibold text-center text-[18px] flex flex-col">
 <h1 className="font-bold text-[20px]">   Hotel</h1> 
 
@@ -56,7 +55,7 @@ Contact
 </span>
 
 <span onClick={changeDisplay}>
-    <FaBars/>
+{display ? <FaTimes/>:<FaBars/>}    
     </span>
 
       
