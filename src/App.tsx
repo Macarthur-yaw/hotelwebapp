@@ -7,6 +7,7 @@ import {Routes,Route} from 'react-router-dom'
 import Booking from "./RoutesPages/Booking";
 import Services from "./RoutesPages/Services";
 import Gallery from "./RoutesPages/Gallery";
+import About from "./RoutesPages/About";
 // import { Rooms } from "./Constant/Rooms";
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
 <Route path="/services" element={<Services />} />
 <Route path="/gallery" element={<Gallery/>} />
 {/* <Route path="/rooms" element={<Rooms/>}/> */}
+<Route path='/about' element={<About/>}/>
 
 </Routes>        
         <Footer />

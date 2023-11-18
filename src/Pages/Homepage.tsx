@@ -99,7 +99,7 @@ const Homepage = () => {
             </div>
           </div>
 
-          <div className="absolute right-10 top-1/2 transform -translate-y-1/2 flex flex-col items-center">
+          <div className="absolute md:right-10 md:top-1/2 bottom-0 transform -translate-y-1/2 flex md:flex-col flex-row gap-2 items-center">
   <span onClick={() => setSlideIndex(1)} className={`dot ${slideIndex === 1 ? 'active' : ''}`} />
   <span onClick={() => setSlideIndex(2)} className={`dot ${slideIndex === 2 ? 'active' : ''}`} />
   <span onClick={() => setSlideIndex(3)} className={`dot ${slideIndex === 3 ? 'active' : ''}`} />
