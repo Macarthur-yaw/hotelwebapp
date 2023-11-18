@@ -1,8 +1,8 @@
 import Homepage from "../Pages/Homepage";
-
-const Body = () => {
+const Body = () => {    
     return ( 
         <div>
+
         <Homepage/>
         </div>
      );

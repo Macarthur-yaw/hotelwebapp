@@ -16,7 +16,7 @@ const AboutSection = ({ quote, author, position, avatar }:Props) => {
     
     whileHover={{scale:1.08}}
     transition={{duration:0.2}}
-    className="max-w-[30%] border-2   gap-2 items-center  mx-auto bg-white p-6 rounded-md border-white shadow-md flex flex-row">
+    className="md:max-w-[30%] border-2   gap-2 items-center  mx-auto bg-white p-6 rounded-md border-white shadow-md flex flex-row">
       <img src={avatar} alt="Avatar" className="w-[50%] h-[200px] rounded-md mx-auto mb-4" />
       
       <span className="flex flex-col  ">

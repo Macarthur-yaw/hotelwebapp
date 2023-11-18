@@ -1,17 +1,26 @@
+import React, { lazy, Suspense } from 'react';
+
 import { backgroundPictures } from "../Constant/BackgroundPictures";
 import { motion } from "framer-motion";
 import { RoomCards } from "../Components/RoomCards";
 import { useEffect,useState } from "react";
-import Section from "../Components/Section";
-import AboutSection from "../Components/AboutSection";
+const Section  =lazy(()=>import ( "../Components/Section"));
+
+const AboutSection=lazy(()=>import("../Components/AboutSection"));
 // import {FaLessThan,FaGreaterThan} from 'react-icons/fa'
 import manPic from '../assets/man (2).jpg'
 import { Rooms } from "../Constant/Rooms";
 import { ImageGallery } from "../Constant/ImageGallery";
-import Location from "../Components/Location";
-import SectionFooter from "../Components/SectionFooter";
+
+const Location=lazy(()=>import( "../Components/Location"));
+const SectionFooter = lazy(() => import("../Components/SectionFooter"));
+
 import chevronRight from '../assets/chevron-right.png'
+// import {lazy } from 'react'
+import { useContext } from 'react';
+import { OverlayContext } from '../App';
 const Homepage = () => {
+  const overlay=useContext(OverlayContext)
   const[slideIndex,setSlideIndex]=useState<number>(1)
   useEffect(()=>{
 
@@ -54,7 +63,7 @@ const Homepage = () => {
     avatar: manPic,
   };
   return (
-    <div className="">
+    <div className={`${overlay ? 'bg-black opacity-25 w-fixed z-10':''}py-20`}>
       {backgroundPictures.map((picture) => (
         <motion.div 
       initial={{opacity:0.6}}
@@ -63,28 +72,28 @@ const Homepage = () => {
         transition={{duration:1}}
         
         
-        className={`${picture.id === slideIndex ? 'block':'hidden'} mt-4 px-4 flex flex-row justify-around w-full`}>
+        className={`${picture.id === slideIndex ? 'block':'hidden'} mt-4 px-4 items-center flex md:flex-row flex-col justify-evenly md:justify-around w-full`}>
        
        <div className=" ">
               <div
                 key={picture.id}
-                className="  flex flex-col gap-4  items-start  h-[100%] justify-center px-10 line-clamp-5 "
+                className="  flex flex-col gap-4  items-start  md:h-[100%] justify-center md:px-10 py-20 md-py-[1px] line-clamp-5 "
               >
-                <h1 className="text-5xl  text-black font-bold">
+                <h1 className="md:text-5xl text-5xl   text-black font-bold">
                   {picture.Title}
                 </h1>
 
                 <span className="">
                   <div className="w-max  mx-auto">
-                    <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-black pr-5 text-xl text-black font--semibold">
+                    <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-black pr-2 text-[12px] text-black font--semibold">
                       {picture.content}
                     </h1>
                   </div>
                 </span>
 
                 <span className="flex flex-row gap-2   items-center">
-                  <button className="bg-black text-white border-black border-2 shadow-md p-2">Book</button>
-                  <button className="bg-white border-black border-[1px] p-2 text-black shadow-md">Learn More</button>
+                  <button className="bg-black text-white w-[40%] md:w-auto md:text-normal text-[12px] border-black border-2 shadow-md md:p-2 p-[3px]">Book</button>
+                  <button className="bg-white border-black w-[90%] md:w-auto text-[12px] md:text-normal border-[1px] md:p-2 p-[3px]  text-black shadow-md">Learn More</button>
                 </span>
               </div>
             </div>
@@ -93,19 +102,19 @@ const Homepage = () => {
             loading="lazy"
             src={picture.imageUrl}
             alt="background"
-            className="  md:w-[600px] md:h-[80vh]"
+            className="px-0   md:w-[600px] w-full h-[350px]  md:h-[80vh]"
           />
          
         </motion.div>
       ))}
 
  
-      <aside className="mt-20 flex  flex-row-reverse items-center gap-4 p-20">
-      <div className="flex flex-col w-[40%] gap-2 p-2    ">
-<span className="flex flex-col gap-2 ">
+      <aside className="mt-20 flex  flex-col md:flex-row-reverse items-center gap-4 md:p-20">
+      <div className="flex flex-col md:w-[40%] gap-2 p-2    ">
+<span className="flex flex-col md:gap-2 gap-4  ">
   <h2 className="font-semibold text-[0.8rem]">Luxury</h2>
 
-  <h1 className="font-semibold text-[2.5rem]">Experience the epitome of luxury and comfort</h1>
+  <h1 className="font-semibold md:text-[2.5rem] text-[1.8rem]">Experience the epitome of luxury and comfort</h1>
 </span>
 
 <span className=" flex flex-col    gap-2">
@@ -147,29 +156,33 @@ const Homepage = () => {
           ))}
         </div>
       </aside>
-
+<Suspense fallback={<div>loading</div>}>
       <Section/>
+      </Suspense>
+    
       <div className="flex flex-col gap-12 py-20 items-center mt-10">  
 {/* <h1 className="font-semibold text-[30px]">    What people say    about us</h1>   */}
      <span className="">  
-     <h1 className="font-bold text-[2.6rem]">   What People say about us</h1>
+     <h1 className="font-bold md:text-[2.6rem] text-[20px]">   What People say about us</h1>
      <h3 className="text-sm text-center">These are some of the feedbacks from our clients.</h3>
      </span>   
-     <div className="flex flex-row mb-20">
+     <div className="flex md:flex-row flex-col mb-20">
+    <Suspense fallback={<div>loading</div>}>
      <AboutSection {...testimonialData}/>
      <AboutSection {...testimonialData}/>
      <AboutSection {...testimonialData}/>
+     </Suspense>
      </div> </div>
 
-<div>
+<div className='p-4'>
  <h1 className="text-center font-semibold text-[30px]">
  OUR ROOMS
   </h1>  
 
-<div className="grid grid-cols-3 gap-6  w-fit mx-auto">
+<div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto">
 {Rooms.map((content)=>(
     <div key={content.id} className="border-[1px] border-white shadow-md  ">
-      <img src={content.imgUrl} className='md:w-[300px]
+      <img loading='lazy' src={content.imgUrl} className='md:w-[300px]
       hover:
       ' alt=""/>
       <span className="flex flex-row justify-between py-4 items-center p-2">
@@ -184,10 +197,10 @@ const Homepage = () => {
 
 <div className="mt-20">
 <h1 className="text-center font-medium text-[25px] mb-10">OUR GALLERY</h1> 
-<div className="grid grid-cols-3 gap-6  w-fit mx-auto">
+<div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto">
 {ImageGallery.map((content)=>(
     <div key={content.id} className="border-[1px] border-white shadow-md  ">
-      <img src={content.imgUrl} className='md:w-[300px] h-[220px]
+      <img src={content.imgUrl} className='md:w-[300px] w-full h-[220px]
       hover:
       ' alt=""/>
       <span className="flex flex-row justify-between py-4 items-center p-2">
@@ -201,10 +214,14 @@ const Homepage = () => {
 </div>
 
 <div>
+  <Suspense fallback={<div>loading</div>}>
   <Location/>
+  </Suspense>
 </div>
 <div>
+  <Suspense fallback={<div>loading</div>}>
   <SectionFooter/>
+  </Suspense>
 </div>
     </div>
   );

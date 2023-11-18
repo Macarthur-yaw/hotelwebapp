@@ -1,7 +1,7 @@
 const Location = () => {
     return ( 
         <div>
-            this is the location 
+            {/* this is the location  */}
         </div>
      );
 }

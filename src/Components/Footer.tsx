@@ -3,8 +3,8 @@
 import {FaFacebook,FaTwitter,FaInstagram} from 'react-icons/fa'
 const Footer = () => {
   return (
-    <footer className="bg-gray-500 text-white py-12">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+    <footer className="bg-gray-500 text-white px-4 py-12">
+      <div className="container mx-auto md:grid grid-cols-1 md:grid-cols-4 gap-16">
 
 <span className="flex flex-col gap-2">
    <h1> HotelLogo

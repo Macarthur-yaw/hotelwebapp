@@ -4,7 +4,7 @@ import {FaPhone} from 'react-icons/fa'
 const SectionFooter = () => {
   return (
     <div className="p-2">
-    <div className="flex flex-row p-2 gap-6 items-center mx-auto my-8 w-[55%]   ">
+    <div className="md:flex md:flex-row flex-col  p-2 gap-6 items-center mx-auto my-8 md:w-[55%]   ">
 
       <div className="flex flex-col  gap-8">
       <h2 className="text-3xl font-semibold mb-4">Contact Us</h2>
@@ -24,7 +24,7 @@ const SectionFooter = () => {
         </div>
       </div>
 
-      <form className="mt-8 w-[50%] ml-auto">
+      <form className="mt-8 md:w-[50%] md:ml-auto">
         
         <div className=" flex flex-col gap-4">
         Kindly fill this form  with your info and enquiries, if you want us to contact you.
