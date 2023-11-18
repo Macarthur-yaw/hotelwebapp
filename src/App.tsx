@@ -7,6 +7,7 @@ import {Routes,Route} from 'react-router-dom'
 import Booking from "./RoutesPages/Booking";
 import Services from "./RoutesPages/Services";
 import Gallery from "./RoutesPages/Gallery";
+// import { Rooms } from "./Constant/Rooms";
 function App() {
   
   return (
@@ -17,6 +18,8 @@ function App() {
       <Route path="/booking" element={<Booking />} />
 <Route path="/services" element={<Services />} />
 <Route path="/gallery" element={<Gallery/>} />
+{/* <Route path="/rooms" element={<Rooms/>}/> */}
+
 </Routes>        
         <Footer />
 

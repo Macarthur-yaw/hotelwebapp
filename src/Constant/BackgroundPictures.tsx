@@ -1,10 +1,12 @@
-import PicOne from '../assets/bg.jpg'
-import PicTwo from '../assets/pexels-eduardo-romero-3124079.jpg'
-import PicThree from '../assets/pexels-naim-benjelloun-2029698.jpg'
-import PicSeven from '../assets/pexels-vincent-rivaud-2363808.jpg'
+import PicOne from '../assets/bgOne.jpg'
+import PicTwo from '../assets/bgTwo.jpg'
+import PicThree from '../assets/bgThree.jpg'
+import PicSeven from '../assets/bgFour.jpg'
+
+
 interface backgroundPictures{
     id:number,
-    imageUrl:string,
+    imageUrl?:string,
     Title:string,
     content:string
 
