@@ -171,18 +171,24 @@ const Homepage = () => {
           OUR GALLERY
         </h1>
         <div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto p-2">
-          {ImageGallery.slice(0, 5).map((content) => (
+          {ImageGallery.map((content) => (
             <div
               key={content.id}
-              className="border-[1px] border-white shadow-md  "
+              className={`${content.id ===1 ? 'block':'hidden'} border-[1px] border-white shadow-md  `}
             >
-              <img
+              <div className="flex flex-col gap-6">
+              {
+                content.imgProps?.map((content)=>(
+<img
                 src={content.imgUrl}
                 className="md:w-[400px] object-cover w-full h-[250px]
       hover:
       "
                 alt=""
               />
+                ))
+              }
+</div>              
               <span className="flex flex-row justify-between py-4 items-center p-2">
                 {/* <h2>        {content.title}</h2> */}
                 {/* <button className="bg-black text-white p-2 text-[0.8rem]">VIEW DETAILS</button> */}
