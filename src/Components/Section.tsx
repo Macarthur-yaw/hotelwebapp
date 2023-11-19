@@ -1,6 +1,6 @@
 import { Images } from "../Constant/Images";
 import { SectionContents } from "../Constant/SectionContent";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 const Section = () => {
   const [contentIndex,setContentIndex]=useState<number>(0)
@@ -9,6 +9,9 @@ const Section = () => {
 setContentIndex(index)
 // setColor(!color)
     }
+    useEffect(()=>{
+setContentIndex(1)
+    },[])
     return ( 
         <div className="">
             <h1 className="text-center font-semibold text-[30px] mt-10">OUR SERVICES </h1>

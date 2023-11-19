@@ -3,14 +3,15 @@
 import {FaEnvelope,FaPhoneAlt,FaFacebook,FaTwitter,FaInstagram,FaMapMarker,} from 'react-icons/fa'
 const Footer = () => {
   return (
-    <footer className="bg-[#272727] text-[#AAAAAA] px-4 py-12">
+    <footer className="bg-[#272727] text-[#AAAAAA] px-4">
+<div className='py-20'>
       <div className="container mx-auto md:grid grid-cols-1 md:grid-cols-4 gap-16">
 
 <span className="flex flex-col gap-2">
    <h1 id='header' className='text-2xl font-medium text-white'> HotelLogo
    </h1>
    
-   <div className='text-sm  w-[70%]'>
+   <div className='text-[12px]  w-[70%]'>
    We aim at giving you the best luxury experience you can possible ask for, right here in the heart of Tarkwa
 
 Book your stay now and let us pamper you!
@@ -61,9 +62,9 @@ Book your stay now and let us pamper you!
          
         </div>
       </div>
-
+      </div>
       {/* Bottom Footer */}
-      <div className="mt-8 text-center">
+      <div className="text-sm text-center">
         <p>&copy; 2023 Hotel Name. All Rights Reserved.</p>
       </div>
     </footer>

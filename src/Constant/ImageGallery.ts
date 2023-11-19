@@ -9,38 +9,81 @@ import galleryEight from '../assets/pexels-eduardo-romero-3124079.jpg'
 import galleryNine from '../assets/pexels-naim-benjelloun-2029698.jpg'
 interface ImageGallery{
     id:number,
-    imgUrl:string
+    // imgUrl:string,
+    imgProps?:Array<{
+        id:number,
+        imgUrl:string
+    }>
+
 }
 export const ImageGallery:ImageGallery[]=[
     {
         id:1,
-        imgUrl:galleryOne
+        
+        imgProps:[
+            {
+                id:1,
+                imgUrl:galleryOne
+            },
+            {
+                id:2,
+                imgUrl:galleryTwo
+            },
+            {
+                id:3,
+                imgUrl:galleryThree
+            }
+        ]
     },{
         id:2,
-        imgUrl: galleryTwo
-    },{
+        
+        imgProps:[
+            {
+                id:1,
+                imgUrl:galleryFour
+            },
+            {
+                id:2,
+                imgUrl:gallerySix
+            },
+            {
+                id:3,
+                imgUrl:gallerySeven
+            }
+        ]
+    },
+    {
         id:3,
-        imgUrl:galleryThree
-    }
-    ,{
+        imgProps:[
+            {
+                id:1,
+                imgUrl:galleryEight
+            },
+            {
+                id:2,
+                imgUrl:galleryNine
+            },
+            {
+                id:3,
+                imgUrl:galleryFour
+            }
+        ]
+    },{
         id:4,
-        imgUrl:galleryFour
-    },
-    {
-        id:5,
-        imgUrl:galleryFive
-    },
-    {
-        id:6,
-        imgUrl:gallerySix
-    },{
-        id:7,
-        imgUrl:gallerySeven
-    },{
-        id:8,
-        imgUrl:galleryEight
-    },{
-        id:9,
-        imgUrl:galleryNine
+        // imgUrl:galleryOne,
+        imgProps:[
+            {
+                id:1,
+                imgUrl:galleryFour
+            },
+            {
+                id:2,
+                imgUrl:galleryOne
+            },
+            {
+                id:3,
+                imgUrl:galleryFive
+            }
+        ]
     }
 ]

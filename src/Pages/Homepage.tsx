@@ -11,7 +11,7 @@ const AboutSection = lazy(() => import("../Components/AboutSection"));
 import manPic from "../assets/man (2).jpg";
 import { Rooms } from "../Constant/Rooms";
 import { ImageGallery } from "../Constant/ImageGallery";
-
+import { Link } from "react-router-dom";
 const Location = lazy(() => import("../Components/Location"));
 const SectionFooter = lazy(() => import("../Components/SectionFooter"));
 
@@ -89,12 +89,12 @@ const Homepage = () => {
               </span>
 
               <span className="flex flex-row gap-2   items-center">
-                <button className="bg-black text-white w-[100px] md:w-[150px] md:text-xl border-black  md:text-normal text-[14px]  border-2 shadow-md md:p-2 p-2">
+              <Link to='/booking'>  <button className="bg-black text-white w-[100px] md:w-[150px] md:text-xl border-black  md:text-normal text-[14px]  border-2 shadow-md md:p-2 p-2">
                   Book
-                </button>
-                <button className="bg-white border-black w-[100px] md:w-[150px] text-[14px] md:text-xl border-[1px] md:p-2 p-[8px]  text-black shadow-md">
+                </button></Link>
+                {/* <button className="bg-white border-black w-[100px] md:w-[150px] text-[14px] md:text-xl border-[1px] md:p-2 p-[8px]  text-black shadow-md">
                   Learn More
-                </button>
+                </button> */}
               </span>
             </div>
           </div>
@@ -166,7 +166,7 @@ const Homepage = () => {
       </div>
 
 
-      <div className="mt-20">
+      <div className="mt-10">
         <h1 className="text-center font-medium text-[25px] mb-10">
           OUR GALLERY
         </h1>

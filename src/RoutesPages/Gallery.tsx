@@ -1,8 +1,13 @@
 import { ImageGallery } from "../Constant/ImageGallery";
 import bgOne from '../assets/Gallery4.jpg'
-
+import {useEffect, useState} from 'react'
 const Gallery = () => {
- 
+//  const[display,setDisplay]=useState<boolean>(false)
+const[index,setIndex]=useState<number>(0);
+useEffect(()=>
+{
+setIndex(1)
+},[])
     return ( 
  <div>
       <div className="relative">
@@ -14,21 +19,28 @@ const Gallery = () => {
 
      </div>
      </div>
- <div className="md:px-4 mx-auto w-fit   mt-10 flex flex-row gap-4">
-<button  className="border-[1px] sm:px-4 px-2 py-[2px] border-black bg-black text-white text-[12px] sm:text-[14px]">All</button>
-<button className="border-[1px] sm:px-4 px-2 border-black text-white bg-black text-[12px] sm:text-[14px]">Restaurant</button>
-<button className="border-[1px] sm:px-4 px-2 bg-black text-white text-[12px] sm:text-[14px]">Gymn</button>
-<button className="border-[1px] sm:px-4 px-2 bg-black text-white text-[12px] sm:text-[14px]">Swimming pool</button>
+ <div className="md:px-4 mx-auto    mt-10 flex flex-row gap-4 px-4">
+<button onClick={()=>setIndex(1)}  className="border-[1px] sm:px-8 px-4 py-[2px] border-black bg-black text-white text-[12px] sm:text-[14px]">All</button>
+<button onClick={()=>setIndex(2)} className="border-[1px] sm:px-8 px-4 border-black text-white bg-black text-[12px] sm:text-[14px]">Restaurant</button>
+<button onClick={()=>setIndex(3)} className="border-[1px] sm:px-8 p-2 bg-black text-white text-[14px] sm:text-[14px]">Gymn</button>
+<button  onClick={()=>setIndex(4)} className="border-[1px] sm:px-8 px-4 bg-black text-white text-[12px] sm:text-[14px]">Swimming pool</button>
  
  </div>
- <div className="mt-2 px-4 flex flex-col md:grid md:grid-cols-3 mb-4 gap-4">
+ <div className="mt-4 px-4 mb-10 ">
  
      {
         ImageGallery.map((item)=>(
-            <div key={item.id} className={``}>
-                <img src={item.imgUrl} alt=""
+            <div key={item.id} className={`${index === item.id ? 'block':'hidden'} `}>
+                {/* <img src={item.imgUrl} alt="" */}
+        <div className="grid grid-cols-2 md:grid md:grid-cols-3 gap-2"> {
+            item.imgProps?.map((content)=>(
+              <div key={content.id} className="" >
+                <img src={content.imgUrl} className="md:w-[800px] w-[400px] h-[200px] md:h-[500px] object-cover  "/>
                 
-                className={`w-[500px] md:w-[700px] md:h-[600px] object-cover mx-auto`} />
+              </div>  
+            ))
+         }    </div>   
+                {/* className={`w-[500px] md:w-[700px] h-[300px] md:h-[600px] object-cover md:mx-auto`} /> */}
                 </div>
         ))
      }
