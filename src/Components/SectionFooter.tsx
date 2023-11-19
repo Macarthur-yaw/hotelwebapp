@@ -1,7 +1,23 @@
 // import React from 'react';
 // import Section from './Section';
+import { useState } from 'react';
 import {FaPhoneAlt,FaEnvelope} from 'react-icons/fa'
+import axios from 'axios';
 const SectionFooter = () => {
+  const [name,setName]=useState<string>('')
+  const [email,setEmail]=useState<string>('')
+  const[message,setMessage]=useState<string>('')
+  const handleSubmit=(e:React.FormEvent)=>{
+    e.preventDefault()
+    console.log(name)
+    console.log(email)
+    console.log(message)
+    axios.post('http://localhost:5000/api/contact',{
+      name:name,
+      email:email,
+      message:message
+    }).then((response)=>console.log(response)).catch((error)=>console.log(error))
+  }
   return (
     <div className="p-2">
     <div className="md:flex md:flex-row flex-col  p-2 gap-6 items-center mx-auto my-8 md:w-[55%]   ">
@@ -23,7 +39,7 @@ const SectionFooter = () => {
         </div>
       </div>
 
-      <form className="mt-8 md:w-[80%] md:ml-auto">
+      <form onSubmit={handleSubmit} className="mt-8 md:w-[80%] md:ml-auto">
         
         <div className=" flex flex-col gap-4">
       <h1 className='text-[20px] font-medium' id='header'>  Kindly fill this form  with your info and enquiries, if you want us to contact you.
@@ -34,6 +50,8 @@ const SectionFooter = () => {
             <input
               type="text"
               id="name"
+              value={name}
+              onChange={(e)=>setName(e.target.value)}
               name="name"
               className="mt-1 p-2 w-full outline-none border rounded-md"
               placeholder="John Doe"
@@ -47,6 +65,8 @@ const SectionFooter = () => {
             <input
               type="email"
               id="email"
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
               name="email"
               className="mt-1 p-2 w-full border outline-none rounded-md"
               placeholder="john.doe@example.com"
@@ -62,6 +82,8 @@ const SectionFooter = () => {
           <textarea
             id="message"
             name="message"
+            value={message}
+            onChange={(e)=>setMessage(e.target.value)}
             className="mt-1 p-2 w-full border rounded-md"
             placeholder="Type your message here..."
             required

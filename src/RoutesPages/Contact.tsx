@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import bgOne from '../assets/Gallery5.jpg'
 import {FaMapMarker,FaPhoneAlt,FaEnvelope} from 'react-icons/fa'
+// import axios from 'axios';
 const Contact = () => {
   const[display,setDisplay]=useState<boolean>(false)
     return ( 
