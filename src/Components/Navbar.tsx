@@ -59,9 +59,11 @@ Gallery
 About us
 </li>
 </Link>
+<Link to='/contact'>
 <li>
 Contact 
 </li>
+</Link>
 </ul> 
     </motion.div>
 )}
@@ -103,10 +105,11 @@ Contact
     About us
 </li>
 </Link>
-
+<Link to='/contact'>
 <li>
     Contact 
 </li>
+</Link>
         </ul> 
     <button
     id='header'

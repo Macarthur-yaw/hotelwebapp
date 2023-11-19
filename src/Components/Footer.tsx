@@ -1,56 +1,61 @@
 // import React from 'react';
 
-import {FaFacebook,FaTwitter,FaInstagram} from 'react-icons/fa'
+import {FaEnvelope,FaPhoneAlt,FaFacebook,FaTwitter,FaInstagram,FaMapMarker,} from 'react-icons/fa'
 const Footer = () => {
   return (
-    <footer className="bg-gray-500 text-white px-4 py-12">
+    <footer className="bg-[#272727] text-[#AAAAAA] px-4 py-12">
       <div className="container mx-auto md:grid grid-cols-1 md:grid-cols-4 gap-16">
 
-<span className="flex flex-col md:gap-2">
-   <h1> HotelLogo
+<span className="flex flex-col gap-2">
+   <h1 id='header' className='text-2xl font-medium text-white'> HotelLogo
    </h1>
-    <form className="flex items-center gap-0">
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="p-2 border  focus:outline-none rounded-none"
-            />
-            <button
-              type="submit"
-              className="bg-black border-2 border-black text-white py-2 px-4  hover:bg-blue-600 transition-all"
-            >
-              Subscribe
-            </button>
-          </form>
-          <h2 className="md:text-2xl text-md font-medium mt-6 mb-4">Subscribe to Our Newsletter</h2>
+   
+   <div className='text-sm  w-[70%]'>
+   We aim at giving you the best luxury experience you can possible ask for, right here in the heart of Tarkwa
 
+Book your stay now and let us pamper you!
+   </div>
+    
     </span>      
-        <div>
-          <h2 className="md:text-2xl text-md font-semibold mb-4">Quick Links</h2>
-          <ul className="space-y-2">
+        <div className='mt-4'>
+          <h2 className="md:text-2xl text-md font-semibold md:mb-4 mb-2 text-white">Quick Links</h2>
+          <ul className="space-y-2 text-sm">
             <li><a href="/">Home</a></li>
             <li><a href="/rooms">Rooms</a></li>
-            <li><a href="/amenities">Amenities</a></li>
+            <li><a href="/services">Services</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
 
         {/* Contact Information */}
-        <div>
-          <h2 className="md:text-2xl text-md font-semibold mb-4">Contact Us</h2>
-          <p>123 Hostel Street</p>
-          <p>City, Country</p>
-          <p>Email: info@hostel.com</p>
-          <p>Phone: +1 123-456-7890</p>
-        </div>
+        <div className='mt-4 '>
+        <div className="flex flex-col gap-2">
+                <h5 className='text-white'>Contact Us</h5>
+                
+                  <ul className="flex flex-col gap-2 ">
+                    <li className='inline-flex text-sm items-center gap-2'>
+                   <FaMapMarker className='text-[#ACBAC4]'/>
+                     Tarkwa(Umat)
+                    </li>
+                    <li className='inline-flex text-sm items-center gap-2'>
+                     <FaPhoneAlt className='text-[#ACBAC4]'/>
+                      0599293572
+                    </li>
+                    <li className='inline-flex text-sm items-center gap-2'>
+                      <FaEnvelope className='text-[#ACBAC4]'/>
+                      <a href="mailto:arthurkevin1260@gmail.com">info.kevin.com</a>
+                    </li>
+                  </ul>
+              </div>
 
-        {/* Social Media and Newsletter */}
-        <div>
-          <h2 className="md:text-2xl text-md font-semibold mb-4">Connect With Us</h2>
+ </div>
+
+        <div className='mt-4'>
+          <h2 className="md:text-2xl text-md font-semibold md:mb-4 mb-2 text-white">Connect With Us</h2>
           <div className="flex space-x-4">
-            <a href="#" className="text-white hover:text-gray-300"><FaFacebook/></a>
-            <a href="#" className="text-white hover:text-gray-300"><FaTwitter/></a>
-            <a href="#" className="text-white hover:text-gray-300"><FaInstagram/></a>
+            <a href="#" className="text-[#AAAAAA] hover:text-white"><FaFacebook/></a>
+            <a href="#" className="text-[#AAAAAA] hover:text-white"><FaTwitter/></a>
+            <a href="#" className="text-[#AAAAAA] hover:text-white"><FaInstagram/></a>
           </div>
 
          

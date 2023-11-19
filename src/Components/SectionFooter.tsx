@@ -1,6 +1,6 @@
 // import React from 'react';
 // import Section from './Section';
-import {FaPhone} from 'react-icons/fa'
+import {FaPhoneAlt,FaEnvelope} from 'react-icons/fa'
 const SectionFooter = () => {
   return (
     <div className="p-2">
@@ -17,18 +17,17 @@ const SectionFooter = () => {
 
         <div>
           <h3 className="text-xl font-semibold mb-2">Contact Information</h3>
-          <p>Email: info@yourhotel.com</p>
-          <p>
-            <FaPhone/>
+          <p className='inline-flex items-center gap-[4px]'><FaEnvelope/> Email: info@yourhotel.com</p>
+          <p className='inline-flex items-center gap-[4px]'> <FaPhoneAlt/>
             Phone: +1 123-456-7890</p>
         </div>
       </div>
 
-      <form className="mt-8 md:w-[50%] md:ml-auto">
+      <form className="mt-8 md:w-[80%] md:ml-auto">
         
         <div className=" flex flex-col gap-4">
-        Kindly fill this form  with your info and enquiries, if you want us to contact you.
-          <div>
+      <h1 className='text-[20px] font-medium' id='header'>  Kindly fill this form  with your info and enquiries, if you want us to contact you.
+      </h1><div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-600">
               Your Name
             </label>

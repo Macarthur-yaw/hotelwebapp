@@ -11,6 +11,7 @@ import About from "./RoutesPages/About";
 import Rooms from "./RoutesPages/Rooms";
 import Roompage from "./RoutesPages/Roompage";
 // import { Rooms } from "./Constant/Rooms";
+import Contact from "./RoutesPages/Contact";
 function App() {
   
   return (
@@ -25,7 +26,7 @@ function App() {
 <Route path='/about' element={<About/>}/>
 <Route path="/rooms" element={<Rooms/>}/>
 <Route path="/Rooms/:id" element={<Roompage/>}/>
-
+<Route path="/contact" element={<Contact/>}/>
 
 </Routes>        
         <Footer />

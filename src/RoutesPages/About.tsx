@@ -1,10 +1,11 @@
 // import { ImageGallery } from "../Constant/ImageGallery";
 import bgOne from '../assets/Gallery4.jpg'
 import picOne from '../assets/aboutpic.jpg'
-import picTwo from '../assets/aboutpic1.jpg'
+// import picTwo from '../assets/aboutpic1.jpg'
 // import picThree from '../assets/aboutpic2.jpg'
+// import picThree from '../assets/bgThree.jpg'
 const About = () => {
- 
+  
     return ( 
  <div>
       <div className="relative">
@@ -17,39 +18,38 @@ const About = () => {
      </div>
      </div>
  
- <div className="mt-2 px-4 flex flex-col  mb-4 gap-4">
+ <div className="mt-10 px-4 flex flex-row w-[80%] mx-auto  mb-4 gap-4">
  
- <div>
-    <img src={picOne} className='  '/>
-    <h1 className='font-medium text-center'>About us</h1>
-<h2>
+ <div className='flex flex-col-reverse items-center gap-2'>
+    <img src={picOne} className='w-[60%] rounded  '/>
+   <span className='flex flex-col items-center w-[60%]'>
+    <h1 className='font-medium text-left py-4 text-2xl' id='heading'>About us</h1>
+    {/* <p className='font-medium text-xl'>Welcome</p> */}
+<h2 className='text-gray-400 font-medium text-sm '>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, pariatur. Hic repudiandae vel aut provident expedita sunt esse vitae quo aliquid, minus deleniti voluptas enim molestias alias, consequuntur voluptatibus pariatur.
 
+Home
+About Us
+Our Services
+Gallery
+Contact Us
+About Us
+A Place to Remember
+
+Longji International Hotel provides a truly unforgettable experience for those with distinctive taste.
+
+Longji International Hotel is a modern, upscale hospitality company that is passionate about ‘making moments’, recognising that small gestures make a big difference to our guests, since 2013. The hotel has 31 rooms: 16 deluxe rooms, 13 Executive Suites and 2 Executive Deluxe rooms.
+
+Whether you are enjoying a refreshing dip in our swimming pool, relaxing with a cocktail in our exclusive Bar, you can expect service that is professional, friendly and attentive without pretention or Fuss.
+
+For Business or Pleasure, Longji International Hotel is the true home away from home you will never want to leave. 
 </h2>
-    
+</span>
  </div>
 
- <div>
+</div>
 
-    <img src={picTwo} className='object-cover'/>
-    <h1>Hotel information</h1>
-    <ul>
-        <li>
-            Restaurant & lounge bar
-        </li>
-        <li>
-            Gym and tennis Court
-        </li>
-        <li>
-            Outdoor pool
-        </li>
-        <li>
-            Car rental 
-        </li>
-    </ul>
- </div>
-
-      </div>  </div>
+      </div>
      );
 }
  

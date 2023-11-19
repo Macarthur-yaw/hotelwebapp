@@ -1,21 +1,11 @@
 import { useParams } from "react-router-dom";
 import {useState} from 'react'
 // import { RoomCards } from "../Components/RoomCards";
+import {FaCheck} from 'react-icons/fa'
 import bgOne from '../assets/bgOne.jpg'
 import { Rooms as RoomConst } from "../Constant/Rooms";
+import { motion } from "framer-motion";
 // import React, { useState } from 'react';
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
-// interface arguState{
-//     name:string,
-//     email:string,
-//     phone:string,
-//     checkInDate:Date|null,
-//     checkOutDate:Date|null,
-//     roomType:string,
-//     numberOfAdults:string,
-//     numberOfChildren:string
-// }
 
 const Roompage = () => {
     const {id}= useParams();
@@ -29,38 +19,6 @@ setDisplay(imgUrl)
 setDisplayValue(!false)
 }
 
-    // const [formData, setFormData] = useState<arguState>({
-    //   name: '',
-    //   email: '',
-    //   phone: '',
-    //   checkInDate: null,
-    //   checkOutDate: null,
-    //   roomType: 'standard', 
-    //   numberOfAdults: '1', 
-    //   numberOfChildren: '0',
-    // });
-  
-    // const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
-    //   const { name, value } = e.target;
-    //   setFormData((prevData) => ({
-    //     ...prevData,
-    //     [name]: value,
-    //   }));
-    // };
-    
-    
-    // const handleDateChange = (date: Date | null, field: string) => {
-    //   setFormData((prevData) => ({
-    //     ...prevData,
-    //     [field]: date,
-    //   }));
-    // };
-    
-    // const handleSubmit = (e:React.FormEvent) => {
-    //   e.preventDefault();
-    //   // Add your logic to handle the form data (e.g., send it to a server)
-    //   console.log('Form submitted:', formData);
-    // };
   
   
 
@@ -77,7 +35,7 @@ setDisplayValue(!false)
      </div>
      </div>
  {/* <img src={display}/> */}
- <div className='flex flex-row'>
+ <div className='flex md:flex-row flex-col'>
         <div className="mt-10 px-10">
             
 <div className="flex flex-col gap-4">
@@ -86,12 +44,15 @@ setDisplayValue(!false)
               key={content.id}
               className={`${numId === content.id ?'block':'hidden'}   `}
             >
-              <img
+              <motion.img
+              initial={displayValue && {x:-100}}
+              animate={displayValue &&  {x:0}}
+              transition={{duration:2}}
                 loading="lazy"
                 src={displayValue ? display : content.imgUrl}
-                className="md:w-[600px] sm:h-[350px] h-[300px] object-cover"
+                className="md:w-[800px] w-[100%] sm:h-[400px] h-[300px] object-cover"
                 alt=""
-              />
+              ></motion.img>
               {/* <span className="flex flex-row justify-between py-4 items-center p-2">
                 <h2> {content.title}</h2>
                 <button  
@@ -105,7 +66,7 @@ Book now
                         <div key={contents.id}
                          className={`${numId === content.id ? 'block':'hidden'}`}>
 <img onClick={()=>handleDisplay(contents.imgUrl)}
- src={contents.imgUrl} className="w-[150px] md:h-[100px] h-[100px] cursor-pointer object-cover"/>
+ src={contents.imgUrl} className="w-[150px] md:w-[200px] md:h-[100px] h-[100px] cursor-pointer object-cover"/>
       
                        </div>
                     )
@@ -114,9 +75,19 @@ Book now
                 }
                 </div>
 
-                <div className="w-[50%] flex flex-col gap-2">
+                <div className="md:w-[50%] mb-10 flex flex-col gap-2">
             <h1 className="font-medium text-[20px]">{content.title}</h1>
             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, rerum? Culpa numquam autem, optio saepe unde enim harum quam non aliquid eveniet nesciunt dolor dolorum animi dolore architecto quibusdam veritatis.</h2>
+         
+         <span className="flex flex-col gap-4 mt-6">
+         <h1 className="font-medium text-2xl " id="heading">SERVICES</h1>
+          {content.services?.map((content)=>(
+            <div key={content.id}>
+              
+            <h2 className="inline-flex gap-2 items-center text-gray-600"> <FaCheck className='w-[10px]'/> {content.content}</h2>
+            </div>
+          ))}
+         </span>
             </div>
             </div>
           ))}
@@ -124,135 +95,8 @@ Book now
         </div>
         </div>
         
-         {/* <form onSubmit={handleSubmit} className=" flex flex-col w-[60%] px-10 gap-2  mb-20">
-    <h1 className='text-center font-semibold text-xl'>  Make a Reservation</h1>
-      <div className="mb-4">
-      
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className="mt-1 p-2 border outline-none  w-full"
-          required
-      placeholder='Name'
-      />
-      </div>
-
-      <div className="mb-4">
-       
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="mt-1 p-2 border  w-full outline-none"
-          placeholder='Email'
-          required
-        />
-      </div>
-
-      <div className="mb-4">
         
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder='Phone'
-          className="mt-1 p-2 border  w-full outline-none"
-          required
-        />
-      </div>
-
-<div className='flex flex-row gap-4'>
-      <div className="mb-4">
-        <DatePicker
-       placeholderText='Check-in Date'
-       selected={formData.checkInDate}
-          onChange={(date) => handleDateChange(date, 'checkInDate')}
-          className="mt-1 p-2 border  w-full"
-          dateFormat="MM/dd/yyyy"
-          minDate={new Date()}
-          required
-        />
-      </div>
-
-      <div className="mb-4">
-        <DatePicker
-       placeholderText='Check-out Date'
-       selected={formData.checkOutDate}
-          onChange={(date) => handleDateChange(date, 'checkOutDate')}
-          className="mt-1 p-2 border  w-full"
-          dateFormat="MM/dd/yyyy"
-          minDate={formData.checkInDate || new Date()}
-          required
-        />
-      </div>
-      </div>
-      <div className="mb-4">
-        
-        <select
-          id="roomType"
-          name="roomType"
-          value={formData.roomType}
-          onChange={handleChange}
-          placeholder='Room Type'
-          className="mt-1 p-2 border  w-full"
-        >
-          <option value="standard">Standard Room</option>
-          <option value="deluxe">Deluxe Room</option>
-          <option value="suite">Suite</option>
-        </select>
-      </div>
-
-<div className='flex flex-row gap-4'>
-      <div className="mb-4">
-        
-        <select
-          id="numberOfAdults"
-          name="numberOfAdults"
-          value={formData.numberOfAdults}
-          onChange={handleChange}
-        placeholder='Number of Adults'
-          className="mt-1 p-2 border  w-full"
-        >
-          {Array.from({ length: 5 }, (_, i) => i + 1).map((num) => (
-            <option key={num} value={String(num)}>
-              {num}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="mb-4">
     
-        <select
-          id="numberOfChildren"
-          name="numberOfChildren"
-          value={formData.numberOfChildren}
-          onChange={handleChange}
-          className="mt-1 p-2 border  w-full"
-    placeholder='Number of Children'
-    >
-          {Array.from({ length: 5 }, (_, i) => i).map((num) => (
-            <option key={num} value={String(num)}>
-              {num}
-            </option>
-          ))}
-        </select>
-      </div>
-      </div>
-      <div className="mt-4">
-        <button type="submit" className="bg-black text-white p-2 w-[100%]">
-          Book Now
-        </button>
-      </div>
-    </form>
-    */}
         </div>
         </div>);
 }

@@ -6,7 +6,8 @@ import rooms1 from '../assets/rooms1.webp'
 import rooms2 from '../assets/rooms2.jpeg'
 import rooms3 from '../assets/rooms3.jpeg'
 import rooms5 from '../assets/roomss.jpg'
-
+import rooms12 from '../assets/pexels-naim-benjelloun-2029698.jpg'
+import rooms13 from '../assets/pexels-suhel-vba-3659683.jpg'
 
 
 interface Rooms{
@@ -18,6 +19,10 @@ interface Rooms{
         id: number;
         imgUrl: string;
       }>;
+      services?:Array<{
+        id:number;
+        content:string
+      }>
 
 }
 export const Rooms:Rooms[]=[
@@ -25,6 +30,28 @@ export const Rooms:Rooms[]=[
     imgUrl:rooms4,
     title:'lorem ipsumeheheh',
     content:"Are you balling on a budget? You don't have to settle our standard room is a cozy choice",
+    services:[
+{
+    id:1,
+    content:'2 Double Beds',
+
+},{
+    id:2,
+    content:'Air conditioning'
+},{
+    id:3,
+    content:'Work Desk'
+},{
+    id:4,
+    content:'Breakfast included'
+},{
+    id:5,
+    content:'Television'
+},{
+    id:6,
+    content:'Intercom'
+}
+    ],
     items:[
         {
             id:1,
@@ -45,22 +72,221 @@ export const Rooms:Rooms[]=[
     },
     {id:2,
         imgUrl:rooms6,
-        title:'lorem ipsumeheheh'
+        title:'lorem ipsumeheheh',
+        services:[
+            {
+                id:1,
+                content:'2 Double Beds',
+            
+            },{
+                id:2,
+                content:'Air conditioning'
+            },{
+                id:3,
+                content:'Work Desk'
+            },{
+                id:4,
+                content:'Breakfast included'
+            },{
+                id:5,
+                content:'Television'
+            },{
+                id:6,
+                content:'Intercom'
+            }
+                ],
+                items:[
+                    {
+                        id:1,
+                        imgUrl:rooms1
+                    },{
+                        id:2,
+                        imgUrl:rooms2
+                    },{
+                        id:3,
+                        imgUrl:rooms3
+                    },
+                    {
+                        id:4,
+                        imgUrl:rooms10
+                    }
+                
+                ]
+            
         },
         {id:3,
             imgUrl:rooms8,
-            title:'lorem ipsumeheheh'
-            }
+            title:'lorem ipsumeheheh',
+            services:[
+                {
+                    id:1,
+                    content:'2 Double Beds',
+                
+                },{
+                    id:2,
+                    content:'Air conditioning'
+                },{
+                    id:3,
+                    content:'Work Desk'
+                },{
+                    id:4,
+                    content:'Breakfast included'
+                },{
+                    id:5,
+                    content:'Television'
+                },{
+                    id:6,
+                    content:'Intercom'
+                }
+                    ],
+                    items:[
+                        {
+                            id:1,
+                            imgUrl:rooms1
+                        },{
+                            id:2,
+                            imgUrl:rooms2
+                        },{
+                            id:3,
+                            imgUrl:rooms10
+                        },
+                        {
+                            id:4,
+                            imgUrl:rooms12
+                        }
+                    
+                    ]
+                
+        }
             ,{id:4,
                 imgUrl:rooms10,
-                title:'lorem ipsumeheheh'
-                },
+                title:'lorem ipsumeheheh',
+                services:[
+                    {
+                        id:1,
+                        content:'2 Double Beds',
+                    
+                    },{
+                        id:2,
+                        content:'Air conditioning'
+                    },{
+                        id:3,
+                        content:'Work Desk'
+                    },{
+                        id:4,
+                        content:'Breakfast included'
+                    },{
+                        id:5,
+                        content:'Television'
+                    },{
+                        id:6,
+                        content:'Intercom'
+                    }
+                        ],
+                        items:[
+                            {
+                                id:1,
+                                imgUrl:rooms12
+                            },{
+                                id:2,
+                                imgUrl:rooms13
+                            },{
+                                id:3,
+                                imgUrl:rooms3
+                            },
+                            {
+                                id:4,
+                                imgUrl:rooms5
+                            }
+                        
+                        ]
+                    
+            },
                 {id:5,
                     imgUrl:rooms8,
-                    title:'lorem ipsumeheheh'
-                    },
+                    title:'lorem ipsumeheheh',
+
+                    services:[
+                        {
+                            id:1,
+                            content:'2 Double Beds',
+                        
+                        },{
+                            id:2,
+                            content:'Air conditioning'
+                        },{
+                            id:3,
+                            content:'Work Desk'
+                        },{
+                            id:4,
+                            content:'Breakfast included'
+                        },{
+                            id:5,
+                            content:'Television'
+                        },{
+                            id:6,
+                            content:'Intercom'
+                        }
+                            ],
+                            items:[
+                                {
+                                    id:1,
+                                    imgUrl:rooms1
+                                },{
+                                    id:2,
+                                    imgUrl:rooms2
+                                },{
+                                    id:3,
+                                    imgUrl:rooms3
+                                },
+                                {
+                                    id:4,
+                                    imgUrl:rooms5
+                                }
+                            
+                            ]
+                                        },
                     {id:6,
                         imgUrl:rooms6,
-                        title:'lorem ipsumeheheh'
-                        }
+                        title:'lorem ipsumeheheh',
+                        services:[
+                            {
+                                id:1,
+                                content:'2 Double Beds',
+                            
+                            },{
+                                id:2,
+                                content:'Private Kitchen'
+                            },{
+                                id:3,
+                                content:'Work Desk'
+                            },{
+                                id:4,
+                                content:'Breakfast included'
+                            },{
+                                id:5,
+                                content:'Television'
+                            },{
+                                id:6,
+                                content:'Intercom'
+                            }
+                                ],
+                                items:[
+                                    {
+                                        id:1,
+                                        imgUrl:rooms1
+                                    },{
+                                        id:2,
+                                        imgUrl:rooms2
+                                    },{
+                                        id:3,
+                                        imgUrl:rooms3
+                                    },
+                                    {
+                                        id:4,
+                                        imgUrl:rooms5
+                                    }
+                                
+                                ]
+                                                    }
 ]
