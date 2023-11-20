@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios'
 interface arguState{
     name:string,
     email:string,
@@ -23,6 +24,7 @@ const Booking = () => {
     numberOfChildren: '0',
   });
 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -43,6 +45,11 @@ const Booking = () => {
     e.preventDefault();
     // Add your logic to handle the form data (e.g., send it to a server)
     console.log('Form submitted:', formData);
+  axios.post('http://localhost:5000/api/booking',formData).then((response)=>console.log(response)).catch((error)=>(console.error(error)));
+
+  
+  
+
   };
 
   return (

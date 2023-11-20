@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useState ,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 const Navbar = () => {
 const navigate=useNavigate() 
     const[display,setDisplay]=useState<boolean>(false)
@@ -24,6 +25,7 @@ useEffect(()=>{
     return ( 
         <div className="  ">
 <nav className=''>
+    <AnimatePresence initial={false} >
 {display && (
 <motion.div
     initial={{y:10}}
@@ -66,7 +68,7 @@ Contact
 </Link>
 </ul> 
     </motion.div>
-)}
+)}</AnimatePresence>
 
 </nav>
 <nav className={`${scrollPosition > 100 ? 'bg-white text-black ':'bg-transparent text-white'} absolute flex flex-row sm:fixed w-[100%] p-4 z-20 top-0 md:justify-around justify-between  items-center      border-b border-gray-300 border-opacity-50  border-b-0.5`}>
