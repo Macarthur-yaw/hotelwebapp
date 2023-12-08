@@ -12,7 +12,7 @@ import manPic from "../assets/man (2).jpg";
 import { Rooms } from "../Constant/Rooms";
 import { ImageGallery } from "../Constant/ImageGallery";
 import { Link, useNavigate } from "react-router-dom";
-const Location = lazy(() => import("../Components/Location"));
+// const Location = lazy(() => import("../Components/Location"));
 const SectionFooter = lazy(() => import("../Components/SectionFooter"));
 
 const Homepage = () => {
@@ -39,7 +39,7 @@ const Homepage = () => {
   };
 
   const ViewMore=(indexNum:number)=>{
-    // navigate(`/Rooms/${id}`)
+   
     navigate(`/Rooms/${indexNum}`);
   }
   return (
@@ -176,7 +176,7 @@ const Homepage = () => {
               key={content.id}
               className={`${
                 content.id === 1 ? "block" : "hidden"
-              } border-[1px] border-white shadow-md  `}
+              } border-[1px] border-white shadow-sm  `}
             >
               <div className="flex flex-col gap-6">
                 {content.imgProps?.map((content) => (
@@ -199,9 +199,7 @@ const Homepage = () => {
       </div>
 
       <div>
-        <Suspense fallback={<div>loading</div>}>
-          <Location />
-        </Suspense>
+       
       </div>
       <div>
         <Suspense fallback={<div>loading</div>}>

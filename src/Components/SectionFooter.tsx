@@ -1,7 +1,7 @@
 // import React from 'react';
 // import Section from './Section';
 import { useState } from 'react';
-import {FaPhoneAlt,FaEnvelope} from 'react-icons/fa'
+// import {FaPhoneAlt,FaEnvelope} from 'react-icons/fa'
 import axios from 'axios';
 const SectionFooter = () => {
   const [name,setName]=useState<string>('')
@@ -22,7 +22,7 @@ const SectionFooter = () => {
     <div className="p-2">
     <div className="md:flex md:flex-row flex-col  p-2 gap-6 items-center mx-auto my-8 md:w-[55%]   ">
 
-      <div className="flex flex-col  gap-8">
+      {/* <div className="flex flex-col  gap-8">
       <h2 className="text-3xl font-semibold mb-4">Contact Us</h2>
 
         <div>
@@ -37,12 +37,15 @@ const SectionFooter = () => {
           <p className='inline-flex items-center gap-[4px]'> <FaPhoneAlt/>
             Phone: +1 123-456-7890</p>
         </div>
-      </div>
+      </div> */}
 
       <form onSubmit={handleSubmit} className="mt-8 md:w-[80%] md:ml-auto">
         
+        <span>
+          <h1 className='text-center text-2xl '>Contact us</h1>
+        </span>
         <div className=" flex flex-col gap-4">
-      <h1 className='text-[20px] font-medium' id='header'>  Kindly fill this form  with your info and enquiries, if you want us to contact you.
+      <h1 className='text-[16px] text-center font-medium' id='header'>  Kindly fill this form  with your info and enquiries, if you want us to contact you.
       </h1><div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-600">
               Your Name
