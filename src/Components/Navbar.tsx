@@ -24,16 +24,22 @@ useEffect(()=>{
 
     return ( 
         <div className="  ">
-<nav className=''>
-    <AnimatePresence initial={false} >
-{display && (
-<motion.div
-    initial={{y:10}}
-    animate={{y:90}}
-    transition={{duration:0.5}}
-    exit={{y:-100}}
-    className={`${scrollPosition > 100 ? 'bg-white z-10 transition-all duration-75':' z-10 bg-transparent text-white'}left-0  shadow-md z-10  p-2 px-4 sm:fixed absolute h-fit w-full  `}>
-<ul className={`${scrollPosition > 100 ? 'text-black':'text-white'}   text-[18px] flex  flex-col justify-between  font-medium  items-center    py-4 `}> 
+            <AnimatePresence initial={false} >
+            {display && (
+<motion.nav 
+    
+    initial={{x:120}}
+    animate={{x:0}}
+    transition={{duration:0.1}}
+    exit={{x:100}}
+    className={`${scrollPosition > 100 ? 'bg-white z-20 transition-all  duration-75':' z-20 bg-white text-black'} left-0 top-0  shadow-md z-20  p-2 px-4 fixed md:absolute h-screen py-6 w-full  `}>
+    
+
+<div>
+    <span onClick={()=>setDisplay(false)} className='text-2xl'>
+        <FaTimes className='ml-auto'/>
+    </span>
+<ul className={`${scrollPosition > 100 ? 'text-black':''}   text-[18px] flex flex-col gap-14 mx-auto  font-medium  items-center    py-10 `}> 
 
 <Link to='/'>
 <li>
@@ -67,19 +73,21 @@ Contact
 </li>
 </Link>
 </ul> 
-    </motion.div>
-)}</AnimatePresence>
+    </div>
 
-</nav>
-<nav className={`${scrollPosition > 100 ? 'bg-white text-black ':'bg-transparent text-white'} absolute flex flex-row sm:fixed w-[100%] p-4 z-20 top-0 md:justify-around justify-between  items-center      border-b border-gray-300 border-opacity-50  border-b-0.5`}>
+
+</motion.nav>
+)}
+</AnimatePresence>
+<nav className={`${scrollPosition > 100 ? 'bg-white text-black ':'bg-transparent text-white'} absolute flex flex-row sm:fixed w-[100%] p-4 md:z-20 ${display ? 'z-0':'z-20'} top-0 md:justify-around justify-between  items-center      border-b border-gray-300 border-opacity-50  border-b-0.5`}>
 <span className="font-semibold text-center text-[18px] flex flex-col">
 <h1 id='heading' className="font-medium text-[30px]">   Hotel</h1> 
 
 <h3 className="text-sm ">  Logo</h3> 
 </span>
 
-<span onClick={changeDisplay} className={`${scrollPosition >100 ? 'text-black':'text-white'} cursor-pointer md:hidden  text-2xl`}>
-{display ? <FaTimes/>:<FaBars/>}    
+<span onClick={changeDisplay} className={`${scrollPosition >100 ? '':''} cursor-pointer md:hidden  text-2xl`}>
+<FaBars/>    
     </span>
 
       

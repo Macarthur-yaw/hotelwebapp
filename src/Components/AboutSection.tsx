@@ -15,9 +15,9 @@ const AboutSection = ({ quote, author,   }:Props) => {
     
     whileHover={{scale:1.08}}
     transition={{duration:0.2}}
-    className="md:max-w-[25%]   gap-2 items-center  mx-auto bg-white p-6    flex flex-col border-[1px]">
+    className="md:max-w-[25%]   gap-2 items-center  mx-auto bg-white p-6    flex flex-col border-[1px] border-gray-50 ">
       {/* <img src={avatar} alt="Avatar" className="w-[50%] h-[200px] rounded-md mx-auto mb-4" /> */}
-      <p className="text-gray-600 font-semibold">{author}</p>  
+      <p className="text-gray-600 font-medium">{author}</p>  
       <span className="flex flex-col gap-2 ">
       <span className="flex flex-row items-center mx-auto gap-2">
         <img src={FaStars} alt="" className=""/>

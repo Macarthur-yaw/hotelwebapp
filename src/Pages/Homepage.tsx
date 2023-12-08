@@ -11,14 +11,13 @@ const AboutSection = lazy(() => import("../Components/AboutSection"));
 import manPic from "../assets/man (2).jpg";
 import { Rooms } from "../Constant/Rooms";
 import { ImageGallery } from "../Constant/ImageGallery";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Location = lazy(() => import("../Components/Location"));
 const SectionFooter = lazy(() => import("../Components/SectionFooter"));
 
-// import chevronRight from "../assets/chevron-right.png";
-// import {lazy } from 'react'
 const Homepage = () => {
   const [slideIndex, setSlideIndex] = useState<number>(1);
+  const navigate=useNavigate()
   useEffect(() => {
     const interval = setInterval(() => {
       if (slideIndex < backgroundPictures.length - 1) {
@@ -31,29 +30,18 @@ const Homepage = () => {
     return () => clearInterval(interval);
   }, [slideIndex]);
 
-  // const NextSlide = (id: number) => () => {
-  //   console.log(id);
-  //   if (id < backgroundPictures.length - 1) {
-  //     setSlideIndex(id + 1);
-  //   } else {
-  //     setSlideIndex(1);
-  //   }
-  // };
-  // const PrevSlide = (id: number) => () => {
-  //   // setSlideIndex(id-1)
-  //   if (id === 1) {
-  //     setSlideIndex(backgroundPictures.length - 1);
-  //   } else {
-  //     setSlideIndex(id - 1);
-  //   }
-  // };
   const testimonialData = {
     quote:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    author: "John Doe",
+    author: "MacArthur Yaw",
     position: "CEO, Company Name",
     avatar: manPic,
   };
+
+  const ViewMore=(indexNum:number)=>{
+    // navigate(`/Rooms/${id}`)
+    navigate(`/Rooms/${indexNum}`);
+  }
   return (
     <div className="">
       {backgroundPictures.map((picture) => (
@@ -68,10 +56,8 @@ const Homepage = () => {
             picture.id === slideIndex ? "block" : "hidden"
           } relative  items-center flex md:flex-row flex-col justify-evenly md:justify-around w-full h-screen`}
         >
-          <div className="bg-black bg-opacity-30 absolute w-full h-screen">
-
-          </div>
-     <div className=" ">
+          <div className="bg-black bg-opacity-30 absolute w-full h-screen"></div>
+          <div className=" ">
             <div
               key={picture.id}
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  flex flex-col gap-4  items-center  md:h-[100%] justify-center md:px-10  md-py-[1px] line-clamp-5 "
@@ -89,9 +75,12 @@ const Homepage = () => {
               </span>
 
               <span className="flex flex-row gap-2   items-center">
-              <Link to='/booking'>  <button className="bg-black text-white w-[100px] md:w-[150px] md:text-xl border-black  md:text-normal text-[14px]  border-2 shadow-md md:p-2 p-2">
-                  Book
-                </button></Link>
+                <Link to="/booking">
+                  {" "}
+                  <button className="bg-black text-white w-[100px] md:w-[150px] md:text-xl border-black  md:text-normal text-[14px]  border-2 shadow-md md:p-2 p-2">
+                    Book
+                  </button>
+                </Link>
                 {/* <button className="bg-white border-black w-[100px] md:w-[150px] text-[14px] md:text-xl border-[1px] md:p-2 p-[8px]  text-black shadow-md">
                   Learn More
                 </button> */}
@@ -100,11 +89,20 @@ const Homepage = () => {
           </div>
 
           <div className="absolute md:right-10 md:top-1/2 bottom-0 transform -translate-y-1/2 flex md:flex-col flex-row gap-2 items-center">
-  <span onClick={() => setSlideIndex(1)} className={`dot ${slideIndex === 1 ? 'active' : ''}`} />
-  <span onClick={() => setSlideIndex(2)} className={`dot ${slideIndex === 2 ? 'active' : ''}`} />
-  <span onClick={() => setSlideIndex(3)} className={`dot ${slideIndex === 3 ? 'active' : ''}`} />
-</div>
-     
+            <span
+              onClick={() => setSlideIndex(1)}
+              className={`dot ${slideIndex === 1 ? "active" : ""}`}
+            />
+            <span
+              onClick={() => setSlideIndex(2)}
+              className={`dot ${slideIndex === 2 ? "active" : ""}`}
+            />
+            <span
+              onClick={() => setSlideIndex(3)}
+              className={`dot ${slideIndex === 3 ? "active" : ""}`}
+            />
+          </div>
+
           <img
             src={picture.imageUrl}
             alt="background"
@@ -113,9 +111,10 @@ const Homepage = () => {
         </motion.div>
       ))}
 
-
-<div className="p-4 mt-10">
-        <h1 className="text-center font-semibold text-[30px] mb-4">OUR ROOMS</h1>
+      <div className="p-4 mt-10">
+        <h1 className="text-center font-semibold text-[30px] mb-4">
+          OUR ROOMS
+        </h1>
 
         <div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto">
           {Rooms.map((content) => (
@@ -131,7 +130,10 @@ const Homepage = () => {
               />
               <span className="flex flex-row justify-between py-4 items-center p-2">
                 <h2> {content.title}</h2>
-                <button className="bg-black text-white p-2 text-[0.8rem]">
+            <button 
+            onClick={() => ViewMore(content.id)}
+
+            className="bg-black rounded text-white p-2 text-[0.8rem]">
                   VIEW DETAILS
                 </button>
               </span>
@@ -140,23 +142,22 @@ const Homepage = () => {
         </div>
       </div>
 
-
-<Suspense fallback={<div>loading</div>}>
+      <Suspense fallback={<div>loading</div>}>
         <Section />
       </Suspense>
 
-      <div className="flex flex-col gap-12 py-20 items-center mt-10">
+      <div className="flex flex-col gap-12 py-20  px-4 items-center mt-10">
         {/* <h1 className="font-semibold text-[30px]">    What people say    about us</h1>   */}
         <span className="">
           <h1 className="font-bold md:text-[2.6rem] text-[20px]">
             {" "}
-            Our Testimonials 
+            Our Testimonials
           </h1>
           <h3 className="text-sm text-center">
             These are some of the feedbacks from our clients.
           </h3>
         </span>
-        <div className="flex md:flex-row flex-col mb-20">
+        <div className="flex md:flex-row flex-col gap-2 mb-20">
           <Suspense fallback={<div>loading</div>}>
             <AboutSection {...testimonialData} />
             <AboutSection {...testimonialData} />
@@ -164,7 +165,6 @@ const Homepage = () => {
           </Suspense>
         </div>{" "}
       </div>
-
 
       <div className="mt-10">
         <h1 className="text-center font-medium text-[25px] mb-10">
@@ -174,21 +174,21 @@ const Homepage = () => {
           {ImageGallery.map((content) => (
             <div
               key={content.id}
-              className={`${content.id ===1 ? 'block':'hidden'} border-[1px] border-white shadow-md  `}
+              className={`${
+                content.id === 1 ? "block" : "hidden"
+              } border-[1px] border-white shadow-md  `}
             >
               <div className="flex flex-col gap-6">
-              {
-                content.imgProps?.map((content)=>(
-<img
-                src={content.imgUrl}
-                className="md:w-[400px] object-cover w-full h-[250px]
+                {content.imgProps?.map((content) => (
+                  <img
+                    src={content.imgUrl}
+                    className="md:w-[400px] object-cover w-full h-[250px]
       hover:
       "
-                alt=""
-              />
-                ))
-              }
-</div>              
+                    alt=""
+                  />
+                ))}
+              </div>
               <span className="flex flex-row justify-between py-4 items-center p-2">
                 {/* <h2>        {content.title}</h2> */}
                 {/* <button className="bg-black text-white p-2 text-[0.8rem]">VIEW DETAILS</button> */}

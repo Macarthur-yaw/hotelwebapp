@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios'
+import {PaystackButton} from 'react-paystack'
+
 interface arguState{
     name:string,
     email:string,
@@ -23,6 +25,38 @@ const Booking = () => {
     numberOfAdults: '1', 
     numberOfChildren: '0',
   });
+  // let  public_key="";
+  const componentProps = {
+    email: formData.email,
+    metadata: {
+      custom_fields: [
+        {
+          display_name: "Name",
+          variable_name: "name",
+          value: formData.name,
+        },
+        {
+          display_name: "Phone",
+          variable_name: "phone",
+          value: formData.phone,
+        },
+      ],
+    },
+    publicKey: "pk_test_aec6aabff7c78e6f7ceba7517f1584c9864be652",
+    amount: 1000, 
+    currency:'GHS',
+    text: "Pay Now",
+    onSuccess: () => {
+      alert('Payment was successful');
+    },
+    onClose: () => {
+       alert("Wait! You need this oil, don't go!!!!")
+
+    },
+  };
+  
+  
+  
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
@@ -44,8 +78,10 @@ const Booking = () => {
   const handleSubmit = (e:React.FormEvent) => {
     e.preventDefault();
     // Add your logic to handle the form data (e.g., send it to a server)
-    console.log('Form submitted:', formData);
-  axios.post('http://localhost:5000/api/booking',formData).then((response)=>console.log(response)).catch((error)=>(console.error(error)));
+    // console.log('Form submitted:', formData);
+  axios.post('http://localhost:5000/api/booking',
+  formData).then((response)=>console.log(response)).
+  catch((error)=>(console.error(error)));
 
   
   
@@ -176,11 +212,13 @@ const Booking = () => {
       </div>
       </div>
       <div className="mt-4">
-        <button type="submit" className="bg-black text-white p-2 w-[100%]">
-          Book Now
+        <button type="submit" >
+        <PaystackButton className="bg-black text-white p-2 w-[100%]"  {...componentProps}/>
         </button>
       </div>
     </form>
+
+
 <span className='border-[1px] w-[25%] p-2   h-fit'>
  <p>NEED HELP?</p>
  
