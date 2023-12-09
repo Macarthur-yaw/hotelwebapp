@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios'
-import {PaystackButton} from 'react-paystack'
 
 interface arguState{
     name:string,
@@ -25,35 +24,6 @@ const Booking = () => {
     numberOfAdults: '1', 
     numberOfChildren: '0',
   });
-  // let  public_key="";
-  const componentProps = {
-    email: formData.email,
-    metadata: {
-      custom_fields: [
-        {
-          display_name: "Name",
-          variable_name: "name",
-          value: formData.name,
-        },
-        {
-          display_name: "Phone",
-          variable_name: "phone",
-          value: formData.phone,
-        },
-      ],
-    },
-    publicKey: "pk_test_aec6aabff7c78e6f7ceba7517f1584c9864be652",
-    amount: 1000, 
-    currency:'GHS',
-    text: "Pay Now",
-    onSuccess: () => {
-      alert('Payment was successful');
-    },
-    onClose: () => {
-       alert("Wait! You need this oil, don't go!!!!")
-
-    },
-  };
   
   
   
@@ -213,7 +183,7 @@ const Booking = () => {
       </div>
       <div className="mt-4">
         <button type="submit" >
-        <PaystackButton className="bg-black text-white p-2 w-[100%]"  {...componentProps}/>
+        {/* <PaystackButton className="bg-black text-white p-2 w-[100%]"  {...componentProps}/> */}
         </button>
       </div>
     </form>
