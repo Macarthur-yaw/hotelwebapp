@@ -36,7 +36,7 @@ setDisplayValue(!false)
      </div>
  {/* <img src={display}/> */}
  <div className='flex md:flex-row flex-col'>
-        <div className="mt-10 px-10">
+        <div className="mt-10 px-4">
             
 <div className="flex flex-col gap-4">
             {RoomConst.map((content) => (
@@ -78,9 +78,10 @@ Book now
                 <div className="md:w-[50%] mb-10 flex flex-col gap-2">
             <h1 className="font-medium text-[20px]">{content.title}</h1>
             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, rerum? Culpa numquam autem, optio saepe unde enim harum quam non aliquid eveniet nesciunt dolor dolorum animi dolore architecto quibusdam veritatis.</h2>
+         <div className="mt-6">
+            <h1 className="font-medium text-lg md:text-2xl text-left" id="heading">SERVICES</h1>
          
-         <span className="flex flex-col gap-4 mt-6">
-         <h1 className="font-medium text-2xl " id="heading">SERVICES</h1>
+         <span className="grid grid-cols-2 gap-4 ">
           {content.services?.map((content)=>(
             <div key={content.id}>
               
@@ -88,6 +89,7 @@ Book now
             </div>
           ))}
          </span>
+         </div>
             </div>
             </div>
           ))}

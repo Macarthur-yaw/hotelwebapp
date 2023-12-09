@@ -29,7 +29,7 @@ const Rooms = () => {
         <div className="w-full absolute bg-black h-[100px] md:h-[250px] bg-opacity-40 top-0"></div>
       </div>
 
-      <div className="p-4">
+      <div className="p-2 py-4">
         <div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto">
           {RoomConst.map((content) => (
             <div
@@ -46,7 +46,7 @@ const Rooms = () => {
                 <h2> {content.title}</h2>
                 <button
                   onClick={() => ViewMore(content.id)}
-                  className="bg-black text-white p-2 text-[0.8rem]"
+                  className="bg-black rounded text-white p-2 text-[0.8rem]"
                 >
                   VIEW DETAILS
                 </button>

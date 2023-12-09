@@ -170,7 +170,7 @@ const Homepage = () => {
         <h1 className="text-center font-medium text-[25px] mb-10">
           OUR GALLERY
         </h1>
-        <div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto p-2">
+        <div className=" gap-6  w-fit mx-auto p-2">
           {ImageGallery.map((content) => (
             <div
               key={content.id}
@@ -178,13 +178,11 @@ const Homepage = () => {
                 content.id === 1 ? "block" : "hidden"
               } border-[1px] border-white shadow-sm  `}
             >
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col md:flex-row  md:justify-between gap-6">
                 {content.imgProps?.map((content) => (
                   <img
                     src={content.imgUrl}
-                    className="md:w-[400px] object-cover w-full h-[250px]
-      hover:
-      "
+                    className="md:w-[500px] object-cover w-full h-[250px]"
                     alt=""
                   />
                 ))}
