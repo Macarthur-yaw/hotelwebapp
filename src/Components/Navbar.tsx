@@ -51,15 +51,11 @@ Home
 Rooms
 </li>
 </Link>
-<Link to='/services'>
-<li>
-Services
-</li>
-</Link>
+
 
 <Link to='/gallery'>
 <li>
-Gallery 
+Services & Gallery 
 </li>
 </Link>
 <Link to='/about'>
@@ -101,13 +97,10 @@ Contact
             Rooms
         </li></Link>
 
-<Link to='/services'><li>
-    Services
-</li>
-</Link>
+
 <Link to='/gallery'>
 <li>
-    Gallery 
+Services & Gallery 
 </li>
 </Link>
 <Link to='/about'>

@@ -120,7 +120,7 @@ const Homepage = () => {
           {Rooms.map((content) => (
             <div
               key={content.id}
-              className="border-[1px] border-white shadow-md  "
+              className="border-[1px] border-gray-300 shadow-sm  "
             >
               <img
                 loading="lazy"
@@ -176,13 +176,13 @@ const Homepage = () => {
               key={content.id}
               className={`${
                 content.id === 1 ? "block" : "hidden"
-              } border-[1px] border-white shadow-sm  `}
+              } border-[1px] border-white  shadow-sm  `}
             >
               <div className="flex flex-col md:flex-row  md:justify-between gap-6">
                 {content.imgProps?.map((content) => (
                   <img
                     src={content.imgUrl}
-                    className="md:w-[500px] object-cover w-full h-[250px]"
+                    className="md:w-[500px] rounded object-cover w-full h-[250px]"
                     alt=""
                   />
                 ))}

@@ -64,9 +64,11 @@ Book now
                 {
                     content.items?.map((contents)=>(
                         <div key={contents.id}
-                         className={`${numId === content.id ? 'block':'hidden'}`}>
+                         className={`${numId === content.id ? 'block ':'hidden'}`}>
 <img onClick={()=>handleDisplay(contents.imgUrl)}
- src={contents.imgUrl} className="w-[150px] md:w-[200px] md:h-[100px] h-[100px] cursor-pointer object-cover"/>
+ src={contents.imgUrl} className="w-[150px] 
+   
+ md:w-[200px] md:h-[100px] h-[100px] cursor-pointer object-cover"/>
       
                        </div>
                     )

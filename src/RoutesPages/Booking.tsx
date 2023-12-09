@@ -59,7 +59,7 @@ const Booking = () => {
   };
 
   return (
-    <div className='flex flex-row mt-20 px-10'>    <form onSubmit={handleSubmit} className="max-w-md flex flex-col gap-2 mx-auto  mb-20">
+    <div className='flex md:flex-row flex-col mt-20 px-10'>    <form onSubmit={handleSubmit} className="max-w-md flex flex-col gap-2 mx-auto  mb-20">
     <h1 className='text-center font-semibold text-xl'>  Make a Reservation</h1>
       <div className="mb-4">
       
@@ -136,7 +136,7 @@ const Booking = () => {
           value={formData.roomType}
           onChange={handleChange}
           placeholder='Room Type'
-          className="mt-1 p-2 border  w-full"
+          className="mt-1 p-2 border  md:w-full"
         >
           <option value="standard">Standard Room</option>
           <option value="deluxe">Deluxe Room</option>
@@ -182,14 +182,15 @@ const Booking = () => {
       </div>
       </div>
       <div className="mt-4">
-        <button type="submit" >
+        <button type="submit" className='border-[1px] text-white bg-black w-full p-1' >
         {/* <PaystackButton className="bg-black text-white p-2 w-[100%]"  {...componentProps}/> */}
+     Submit
         </button>
       </div>
     </form>
 
 
-<span className='border-[1px] w-[25%] p-2   h-fit'>
+<span className='border-[1px] md:w-[25%] p-2 hidden  h-fit'>
  <p>NEED HELP?</p>
  
   Incase you need to cancel your booking, please contact us at 

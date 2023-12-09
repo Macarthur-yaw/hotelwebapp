@@ -1,9 +1,6 @@
-// import { ImageGallery } from "../Constant/ImageGallery";
 import bgOne from '../assets/Gallery4.jpg'
 import picOne from '../assets/aboutpic.jpg'
-// import picTwo from '../assets/aboutpic1.jpg'
-// import picThree from '../assets/aboutpic2.jpg'
-// import picThree from '../assets/bgThree.jpg'
+
 const About = () => {
   
     return ( 
@@ -18,11 +15,11 @@ const About = () => {
      </div>
      </div>
  
- <div className="mt-10 px-4 flex flex-row w-[80%] mx-auto  mb-4 gap-4">
+ <div className="mt-10 px-4 flex flex-row  mx-auto  mb-4 gap-4">
  
- <div className='flex flex-col-reverse items-center gap-2'>
-    <img src={picOne} className='w-[60%] rounded  '/>
-   <span className='flex flex-col items-center w-[60%]'>
+ <div className='flex flex-col-reverse md:flex-row md:gap-4 items-center gap-2'>
+    <img src={picOne} className=' rounded  md:w-[50%] '/>
+   <span className='flex flex-col items-center '>
     <h1 className='font-medium text-left py-4 text-2xl' id='heading'>About us</h1>
     {/* <p className='font-medium text-xl'>Welcome</p> */}
 <h2 className='text-gray-400 font-medium text-sm '>

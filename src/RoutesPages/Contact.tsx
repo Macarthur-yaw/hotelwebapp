@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import bgOne from '../assets/Gallery5.jpg'
 import {FaMapMarker,FaPhoneAlt,FaEnvelope} from 'react-icons/fa'
-// import axios from 'axios';
+import { motion,AnimatePresence } from 'framer-motion';
 const Contact = () => {
   const[display,setDisplay]=useState<boolean>(false)
     return ( 
@@ -10,14 +10,14 @@ const Contact = () => {
 <div className="relative">
       <img src={bgOne} className='w-full h-[100px] md:h-[250px] object-cover'/>   
      <span className="absolute bottom-2 md:bottom-10 left-1/2 transform  -translate-x-1/2">
-{/* <h1 id="header" className="font-medium text-[1.5rem] md:text-[3rem] text-white border-b-2 ">Contact us</h1> */}
+<h1 id="header" className="font-medium text-[1.5rem] md:text-[3rem] text-white border-b-2 ">Contact us</h1>
      </span>
      <div className="w-full absolute bg-black h-[100px] md:h-[250px] bg-opacity-40 top-0">
 
      </div>
      </div>
 
-<div className='flex w-[70%]  flex-col  border-white rounded shadow md:w-[50%] mb-20 mx-auto mt-20  '>
+<div className='flex w-[80%]  flex-col  border-white rounded shadow md:w-[50%] mb-20 mx-auto mt-20  '>
       <div>
         <span className=' bg-white justify-center flex flex-col gap-4   items-center'>
             <h1 id='header' className='font-medium  text-[25px] py-8'>
@@ -26,11 +26,17 @@ const Contact = () => {
             <h2>
                 You can send us an Email 
             </h2>
+            
             <button onClick={()=>setDisplay(prevState=>!prevState)} className='border-2 p-2 mb-4 px-6'>{display ? 'Close':'Contact us'}</button>
-     
-     {display && (
-        <div className='w-[80%]'>
-            <form className="mb-4 md:w-[80%]  md:ml-auto">
+            <div className='relative'>
+      <AnimatePresence>     {display && (
+        <motion.div
+        initial={{y:-70,opacity:0}}
+        animate={{y:0,opacity:1}}
+        transition={{duration:0.5}}
+        exit={{y:-70,opacity:0}}
+        className='w-[90%]'>
+            <form className="mb-4 md:w-[90%]  md:ml-auto">
         
         <div className=" flex flex-col gap-4 ">
       {/* <h1 className='text-[20px] font-medium' id='header'>  Kindly fill this form  with your info and enquiries, if you want us to contact you. */}
@@ -77,18 +83,22 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="mt-6 bg-black text-white py-2 px-4  hover:bg-black transition-all"
+          className="mt-6 bg-black text-white py-2 px-4  hover:bg-black rounded transition-all"
         >
           Submit
         </button>
       </form> 
-        </div>
+        </motion.div>
      )}
+     
+   
+     </AnimatePresence>
+     </div>
         </span>
 
       </div>
 
-<div className='flex md:flex-row flex-col gap-2 justify-evenly bg-gray-100 bg-opacity-95 py-20 '>
+<div className='flex md:flex-row flex-col gap-2 justify-evenly bg-gray-50 bg-opacity-95 py-20 '>
     <span className=' flex  flex-col items-center gap-[2px] p-2'>
  <span className=' text-[#222222] text-3xl'><FaMapMarker /></span>
 <h1 className='text-[#222222] font-medium text-xl'>Location</h1>
