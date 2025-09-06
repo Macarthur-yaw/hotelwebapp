@@ -15,6 +15,7 @@ interface Rooms{
     imgUrl:string,
     title:string,
     content?:string,
+    price:number,
     items?:Array<{
         id: number;
         imgUrl: string;
@@ -28,7 +29,8 @@ interface Rooms{
 export const Rooms:Rooms[]=[
     {id:1,
     imgUrl:rooms4,
-    title:'lorem ipsumeheheh',
+    title:'Executive Room',
+    price:200,
     content:"Are you balling on a budget? You don't have to settle our standard room is a cozy choice",
     services:[
 {
@@ -72,7 +74,8 @@ export const Rooms:Rooms[]=[
     },
     {id:2,
         imgUrl:rooms6,
-        title:'lorem ipsumeheheh',
+        title:'Presidential Suite',
+        price:500,
         services:[
             {
                 id:1,
@@ -116,7 +119,8 @@ export const Rooms:Rooms[]=[
         },
         {id:3,
             imgUrl:rooms8,
-            title:'lorem ipsumeheheh',
+            title:'Standard',
+            price:150,
             services:[
                 {
                     id:1,
@@ -160,7 +164,8 @@ export const Rooms:Rooms[]=[
         }
             ,{id:4,
                 imgUrl:rooms10,
-                title:'lorem ipsumeheheh',
+                title:'Deluxe Room',
+                price:300,
                 services:[
                     {
                         id:1,
@@ -204,7 +209,8 @@ export const Rooms:Rooms[]=[
             },
                 {id:5,
                     imgUrl:rooms8,
-                    title:'lorem ipsumeheheh',
+                    title:'Deluxe Room',
+                    price:300,
 
                     services:[
                         {
@@ -246,47 +252,5 @@ export const Rooms:Rooms[]=[
                             
                             ]
                                         },
-                    {id:6,
-                        imgUrl:rooms6,
-                        title:'lorem ipsumeheheh',
-                        services:[
-                            {
-                                id:1,
-                                content:'2 Double Beds',
-                            
-                            },{
-                                id:2,
-                                content:'Private Kitchen'
-                            },{
-                                id:3,
-                                content:'Work Desk'
-                            },{
-                                id:4,
-                                content:'Breakfast included'
-                            },{
-                                id:5,
-                                content:'Television'
-                            },{
-                                id:6,
-                                content:'Intercom'
-                            }
-                                ],
-                                items:[
-                                    {
-                                        id:1,
-                                        imgUrl:rooms1
-                                    },{
-                                        id:2,
-                                        imgUrl:rooms2
-                                    },{
-                                        id:3,
-                                        imgUrl:rooms3
-                                    },
-                                    {
-                                        id:4,
-                                        imgUrl:rooms5
-                                    }
-                                
-                                ]
-                                                    }
+                    
 ]

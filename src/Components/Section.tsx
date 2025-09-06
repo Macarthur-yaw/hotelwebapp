@@ -21,9 +21,9 @@ setContentIndex(1)
             Images.map((image)=>(  
                 <div key={image.id} className={`${image.id === contentIndex ? 'block': 'hidden'}`}>
 <motion.img 
-initial={{opacity:0.8}}
-animate={image.id === contentIndex ? {opacity:1}: {opacity:0.8}}
-transition={{duration:1}}
+initial={{opacity:0.8, x:-100}}
+animate={image.id === contentIndex ? {opacity:1, x:0}: {opacity:0.8}}
+transition={{duration:0.5}}
 src={image.imgUrl} alt="" className="md:w-[600px] object-cover  md:h-[400px] h-[250px] w-[500px]">
     </motion.img>
 </div>
@@ -37,8 +37,8 @@ src={image.imgUrl} alt="" className="md:w-[600px] object-cover  md:h-[400px] h-[
             onClick={()=>displayContent(content.id)}
             key={content.id} className={` p-2 active:border-l-2 border-l  hover:bg-gray-100 flex flex-col gap-2  cursor-pointer`}>
         <div >  
-       <h1 className="font-semibold text-[14px]">   {content.text}</h1>
-   <h3 className="text-[12px]">
+       <h1 className="font-semibold text-[16px] font-serif ">   {content.text}</h1>
+   <h3 className="text-[14px]">
     {content.content}
    </h3>
               </div>

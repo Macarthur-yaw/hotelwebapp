@@ -1,23 +1,31 @@
 import { lazy, Suspense } from "react";
 // import {FaLessThan,FaGreaterThan} from 'react-icons/fa'
-import { backgroundPictures } from "../Constant/BackgroundPictures";
+import { backgroundPictures } from "../Constant/BackgroundPictures.tsx";
 import { motion } from "framer-motion";
 // import { RoomCards } from "../Components/RoomCards";
 import { useEffect, useState } from "react";
-const Section = lazy(() => import("../Components/Section"));
+const Section = lazy(() => import("../Components/Section.tsx"));
 
-const AboutSection = lazy(() => import("../Components/AboutSection"));
+const AboutSection = lazy(() => import("../Components/AboutSection.tsx"));
 // import {FaLessThan,FaGreaterThan} from 'react-icons/fa'
 import manPic from "../assets/man (2).jpg";
 import { Rooms } from "../Constant/Rooms";
-import { ImageGallery } from "../Constant/ImageGallery";
+import { ImageGallery } from "../Constant/ImageGallery.ts";
 import { Link, useNavigate } from "react-router-dom";
 // const Location = lazy(() => import("../Components/Location"));
-const SectionFooter = lazy(() => import("../Components/SectionFooter"));
+const SectionFooter = lazy(() => import("../Components/Section.tsx"));
 
 const Homepage = () => {
   const [slideIndex, setSlideIndex] = useState<number>(1);
-  const navigate=useNavigate()
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [currentGalleryIndex, setCurrentGalleryIndex] = useState<number>(0);
+  const navigate = useNavigate();
+
+  // Get all gallery images in a flat array
+  const allGalleryImages = ImageGallery.flatMap(gallery => 
+    gallery.imgProps?.map(img => img.imgUrl) || []
+  );
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (slideIndex < backgroundPictures.length - 1) {
@@ -30,6 +38,24 @@ const Homepage = () => {
     return () => clearInterval(interval);
   }, [slideIndex]);
 
+  // Handle keyboard navigation for modal
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (selectedImageIndex !== null) {
+        if (e.key === 'Escape') {
+          setSelectedImageIndex(null);
+        } else if (e.key === 'ArrowLeft') {
+          navigateImage('prev');
+        } else if (e.key === 'ArrowRight') {
+          navigateImage('next');
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [selectedImageIndex]);
+
   const testimonialData = {
     quote:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -38,10 +64,33 @@ const Homepage = () => {
     avatar: manPic,
   };
 
-  const ViewMore=(indexNum:number)=>{
-   
+  const ViewMore = (indexNum: number) => {
     navigate(`/Rooms/${indexNum}`);
-  }
+  };
+
+  const openImageModal = (imageIndex: number) => {
+    setSelectedImageIndex(imageIndex);
+    setCurrentGalleryIndex(imageIndex);
+  };
+
+  const navigateImage = (direction: 'next' | 'prev') => {
+    if (selectedImageIndex === null) return;
+
+    let newIndex;
+    if (direction === 'next') {
+      newIndex = (currentGalleryIndex + 1) % allGalleryImages.length;
+    } else {
+      newIndex = (currentGalleryIndex - 1 + allGalleryImages.length) % allGalleryImages.length;
+    }
+    
+    setCurrentGalleryIndex(newIndex);
+    setSelectedImageIndex(newIndex);
+  };
+
+  const closeModal = () => {
+    setSelectedImageIndex(null);
+  };
+
   return (
     <div className="">
       {backgroundPictures.map((picture) => (
@@ -81,9 +130,6 @@ const Homepage = () => {
                     Book
                   </button>
                 </Link>
-                {/* <button className="bg-white border-black w-[100px] md:w-[150px] text-[14px] md:text-xl border-[1px] md:p-2 p-[8px]  text-black shadow-md">
-                  Learn More
-                </button> */}
               </span>
             </div>
           </div>
@@ -103,9 +149,13 @@ const Homepage = () => {
             />
           </div>
 
-          <img
+          <motion.img
             src={picture.imageUrl}
             alt="background"
+            loading="lazy"
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
             className="group cursor-pointer  object-cover   w-full sm:h-screen h-[100%] "
           />
         </motion.div>
@@ -120,23 +170,30 @@ const Homepage = () => {
           {Rooms.map((content) => (
             <div
               key={content.id}
-              className="border-[1px] border-gray-300 shadow-sm  "
+              className="border-[1px] border-gray-300 shadow-sm rounded  relative overflow-hidden"
             >
-              <img
+              <motion.img
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
                 loading="lazy"
                 src={content.imgUrl}
-                className="md:w-[400px] object-cover"
+                className="md:w-[400px] object-cover cursor-pointer"
                 alt=""
               />
-              <span className="flex flex-row justify-between py-4 items-center p-2">
-                <h2> {content.title}</h2>
-            <button 
-            onClick={() => ViewMore(content.id)}
 
-            className="bg-black rounded text-white p-2 text-[0.8rem]">
+              <span className="flex flex-row justify-between py-4 items-center p-2">
+                <h2 className="uppercase font-serif font-semibold tracking-wider text-lg"> {content.title}</h2>
+
+                <button 
+                  onClick={() => ViewMore(content.id)}
+                  className="bg-black rounded text-white p-2 text-[0.8rem] font-semibold text-md font-serif tracking-wider"
+                >
                   VIEW DETAILS
                 </button>
               </span>
+
+              <h2 className="text-black text-[20px] font-serif absolute top-0 left-0 border-l-0 border-t-0 bg-white p-1 rounded-lg shadow-md "> GH{content.price} / night</h2>
             </div>
           ))}
         </div>
@@ -147,7 +204,6 @@ const Homepage = () => {
       </Suspense>
 
       <div className="flex flex-col gap-12 py-20  px-4 items-center mt-10">
-        {/* <h1 className="font-semibold text-[30px]">    What people say    about us</h1>   */}
         <span className="">
           <h1 className="font-bold md:text-[2.6rem] text-[20px]">
             {" "}
@@ -179,26 +235,87 @@ const Homepage = () => {
               } border-[1px] border-white  shadow-sm  `}
             >
               <div className="flex flex-col md:flex-row  md:justify-between gap-6">
-                {content.imgProps?.map((content) => (
-                  <img
-                    src={content.imgUrl}
-                    className="md:w-[500px] rounded object-cover w-full h-[250px]"
-                    alt=""
-                  />
+                {content.imgProps?.map((imageContent, index) => (
+                  <div key={index} className="overflow-hidden rounded cursor-pointer">
+                    <motion.img
+                      src={imageContent.imgUrl}
+                      className="md:w-[500px] rounded object-cover w-full h-[250px]"
+                      alt=""
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                      onClick={() => openImageModal(index)}
+                    />
+                  </div>
                 ))}
               </div>
               <span className="flex flex-row justify-between py-4 items-center p-2">
-                {/* <h2>        {content.title}</h2> */}
-                {/* <button className="bg-black text-white p-2 text-[0.8rem]">VIEW DETAILS</button> */}
               </span>
             </div>
           ))}
         </div>
       </div>
 
-      <div>
-       
-      </div>
+      {/* Full-screen image modal */}
+      {selectedImageIndex !== null && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 z-10"
+            >
+              ×
+            </button>
+
+            {/* Previous button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigateImage('prev');
+              }}
+              className="absolute left-4 text-white text-4xl hover:text-gray-300 z-10"
+            >
+              &#8249;
+            </button>
+
+            {/* Image */}
+            <motion.img
+              key={currentGalleryIndex}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              src={allGalleryImages[currentGalleryIndex]}
+              className="max-w-full max-h-full object-contain"
+              alt=""
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            {/* Next button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigateImage('next');
+              }}
+              className="absolute right-4 text-white text-4xl hover:text-gray-300 z-10"
+            >
+              &#8250;
+            </button>
+
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white">
+              {currentGalleryIndex + 1} / {allGalleryImages.length}
+            </div>
+          </div>
+        </motion.div>
+      )}
+
       <div>
         <Suspense fallback={<div>loading</div>}>
           <SectionFooter />

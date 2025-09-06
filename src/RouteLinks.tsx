@@ -11,7 +11,7 @@ import Roompage from "./RoutesPages/Roompage";
 import Contact from "./RoutesPages/Contact";
 
 import Pages from "./Pages";
-import Booking from "./RoutesPages/Booking";
+// import Booking from "./RoutesPages/Booking";
 const RouteLinks = () => {
     return (  
         <>
@@ -29,7 +29,7 @@ const RouteLinks = () => {
 
 </Route>
 
-<Route path="/booking" element={<Booking/>}/>
+{/* <Route path="/booking" element={<Booking/>}/> */}
 
 </Routes>          
         </>

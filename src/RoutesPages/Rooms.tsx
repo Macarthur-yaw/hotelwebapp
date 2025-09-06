@@ -5,7 +5,8 @@ import bgOne from "../assets/Gallery4.jpg";
 // import picOne from '../assets/aboutpic.jpg'
 // import picTwo from '../assets/aboutpic1.jpg'
 // import picThree from '../assets/aboutpic2.jpg'
-import { Rooms as RoomConst } from "../Constant/Rooms";
+import { Rooms as RoomConst } from "../Constant/Rooms.ts";
+import { motion } from "framer-motion";
 const Rooms = () => {
   const navigate = useNavigate();
   const ViewMore = (indexNum: number) => {
@@ -36,7 +37,10 @@ const Rooms = () => {
               key={content.id}
               className="border-[1px] border-white shadow-md  "
             >
-              <img
+              <motion.img
+              initial={{scale:1}}
+              whileHover={{scale:1.2}}
+              transition={{duration:0.3}}
                 loading="lazy"
                 src={content.imgUrl}
                 className="md:w-[400px] object-cover"
@@ -48,7 +52,7 @@ const Rooms = () => {
                   onClick={() => ViewMore(content.id)}
                   className="bg-black rounded text-white p-2 text-[0.8rem]"
                 >
-                  VIEW DETAILS
+                  VIEW DETAILS 
                 </button>
               </span>
             </div>

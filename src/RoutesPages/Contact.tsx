@@ -8,7 +8,7 @@ const Contact = () => {
         <div >
 
 <div className="relative">
-      <img src={bgOne} className='w-full h-[100px] md:h-[250px] object-cover'/>   
+      <img src={bgOne} className='w-full h-[100px] md:h-[250px] object-cover' loading='lazy'/>   
      <span className="absolute bottom-2 md:bottom-10 left-1/2 transform  -translate-x-1/2">
 <h1 id="header" className="font-medium text-[1.5rem] md:text-[3rem] text-white border-b-2 ">Contact us</h1>
      </span>
