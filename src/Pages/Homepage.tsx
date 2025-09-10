@@ -13,7 +13,7 @@ import { Rooms } from "../Constant/Rooms";
 import { ImageGallery } from "../Constant/ImageGallery.ts";
 import { Link, useNavigate } from "react-router-dom";
 // const Location = lazy(() => import("../Components/Location"));
-const SectionFooter = lazy(() => import("../Components/Section.tsx"));
+
 
 const Homepage = () => {
   const [slideIndex, setSlideIndex] = useState<number>(1);
@@ -316,11 +316,7 @@ const Homepage = () => {
         </motion.div>
       )}
 
-      <div>
-        <Suspense fallback={<div>loading</div>}>
-          <SectionFooter />
-        </Suspense>
-      </div>
+     
     </div>
   );
 };

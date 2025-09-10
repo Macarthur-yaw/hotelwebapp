@@ -17,7 +17,7 @@ const Contact = () => {
      </div>
      </div>
 
-<div className='flex w-[80%]  flex-col  border-white rounded shadow md:w-[50%] mb-20 mx-auto mt-20  '>
+<div className='flex w-[80%]  flex-col  border-white rounded shadow md:w-[80%] mb-20 mx-auto mt-20  '>
       <div>
         <span className=' bg-white justify-center flex flex-col gap-4   items-center'>
             <h1 id='header' className='font-medium  text-[25px] py-8'>
@@ -35,8 +35,8 @@ const Contact = () => {
         animate={{y:0,opacity:1}}
         transition={{duration:0.5}}
         exit={{y:-70,opacity:0}}
-        className='w-[90%]'>
-            <form className="mb-4 md:w-[90%]  md:ml-auto">
+        className='md:w-[450px]'>
+            <form className="mb-4 md:w-[100%]  md:ml-auto">
         
         <div className=" flex flex-col gap-4 ">
       {/* <h1 className='text-[20px] font-medium' id='header'>  Kindly fill this form  with your info and enquiries, if you want us to contact you. */}

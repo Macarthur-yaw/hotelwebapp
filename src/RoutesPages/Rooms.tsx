@@ -5,7 +5,7 @@ import bgOne from "../assets/Gallery4.jpg";
 // import picOne from '../assets/aboutpic.jpg'
 // import picTwo from '../assets/aboutpic1.jpg'
 // import picThree from '../assets/aboutpic2.jpg'
-import { Rooms as RoomConst } from "../Constant/Rooms.ts";
+import { Rooms as RoomsConst } from "../Constant/Rooms.ts";
 import { motion } from "framer-motion";
 const Rooms = () => {
   const navigate = useNavigate();
@@ -32,29 +32,33 @@ const Rooms = () => {
 
       <div className="p-2 py-4">
         <div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto">
-          {RoomConst.map((content) => (
+         {RoomsConst.map((content) => (
             <div
               key={content.id}
-              className="border-[1px] border-white shadow-md  "
+              className="border-[1px] border-gray-300 shadow-sm rounded  relative overflow-hidden"
             >
               <motion.img
-              initial={{scale:1}}
-              whileHover={{scale:1.2}}
-              transition={{duration:0.3}}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
                 loading="lazy"
                 src={content.imgUrl}
-                className="md:w-[400px] object-cover"
+                className="md:w-[400px] object-cover cursor-pointer"
                 alt=""
               />
+
               <span className="flex flex-row justify-between py-4 items-center p-2">
-                <h2> {content.title}</h2>
-                <button
+                <h2 className="uppercase font-serif font-semibold tracking-wider text-lg"> {content.title}</h2>
+
+                <button 
                   onClick={() => ViewMore(content.id)}
-                  className="bg-black rounded text-white p-2 text-[0.8rem]"
+                  className="bg-black rounded text-white p-2 text-[0.8rem] font-semibold text-md font-serif tracking-wider"
                 >
-                  VIEW DETAILS 
+                  VIEW DETAILS
                 </button>
               </span>
+
+              <h2 className="text-black text-[20px] font-serif absolute top-0 left-0 border-l-0 border-t-0 bg-white p-1 rounded-lg shadow-md "> GH{content.price} / night</h2>
             </div>
           ))}
         </div>
