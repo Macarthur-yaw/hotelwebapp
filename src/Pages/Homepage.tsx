@@ -4,9 +4,9 @@ import { backgroundPictures } from "../Constant/BackgroundPictures";
 import { motion } from "framer-motion";
 // import { RoomCards } from "../Components/RoomCards";
 import { useEffect, useState } from "react";
-const Section = lazy(() => import("../components/Section"));
+const Section = lazy(() => import("../Components/Section"));
 
-const AboutSection = lazy(() => import("../components/AboutSection"));
+const AboutSection = lazy(() => import("../Components/AboutSection"));
 // import {FaLessThan,FaGreaterThan} from 'react-icons/fa'
 import manPic from "../assets/man (2).jpg";
 import { Rooms } from "../Constant/Rooms";

@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import "./App.css";
 
 // Lazy load pages
-const Body = lazy(() => import("./components/Body"));
+const Body = lazy(() => import("./Components/Body"));
 const Services = lazy(() => import("./RoutesPages/Services"));
 const Gallery = lazy(() => import("./RoutesPages/Gallery"));
 const About = lazy(() => import("./RoutesPages/About"));
