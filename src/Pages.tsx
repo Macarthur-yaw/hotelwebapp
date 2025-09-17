@@ -8,18 +8,14 @@ const DelayedFallback = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 5); // 5 sec delay
+    const timer = setTimeout(() => setShow(true), 500); // 5 sec delay
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="flex h-screen items-center justify-center">
-      {show ? (
-        <div className="animate-pulse text-xl font-bold text-blue-600">
-          Loading complete... rendering page
-        </div>
-      ) : (
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
+      {!show && (
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-black border-t-transparent"></div>
       )}
     </div>
   );
