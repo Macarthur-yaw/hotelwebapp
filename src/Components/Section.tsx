@@ -14,7 +14,7 @@ setContentIndex(1)
     },[])
     return ( 
         <div className="">
-            <h1 className="text-center font-semibold text-[30px] mt-10">OUR SERVICES </h1>
+            <h1 className="text-center font-semibold text-[30px] mt-10 text-[#5F9C33]">OUR SERVICES </h1>
         <div className="flex md:flex-row flex-col-reverse p-4 md:p-10 items-center md:gap-2 gap-4">
 
       {

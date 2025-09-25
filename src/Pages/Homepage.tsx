@@ -2,16 +2,17 @@ import { lazy, Suspense } from "react";
 // import {FaLessThan,FaGreaterThan} from 'react-icons/fa'
 import { backgroundPictures } from "../Constant/BackgroundPictures";
 import { motion } from "framer-motion";
-// import { RoomCards } from "../Components/RoomCards";
+
 import { useEffect, useState } from "react";
 const Section = lazy(() => import("../Components/Section"));
 
 const AboutSection = lazy(() => import("../Components/AboutSection"));
 // import {FaLessThan,FaGreaterThan} from 'react-icons/fa'
-import manPic from "../assets/man (2).jpg";
+
 import { Rooms } from "../Constant/Rooms";
 import { ImageGallery } from "../Constant/ImageGallery";
 import { Link, useNavigate } from "react-router-dom";
+import { FaArrowRight, FaChevronRight } from "react-icons/fa";
 // const Location = lazy(() => import("../Components/Location"));
 
 
@@ -56,14 +57,22 @@ const Homepage = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [selectedImageIndex]);
 
-  const testimonialData = {
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    author: "MacArthur Yaw",
-    position: "CEO, Company Name",
-    avatar: manPic,
-  };
 
+
+  const testimonialData = [
+  {
+    quote: "The service at Crystal Ark Hotel was exceptional! The rooms were spotless, the staff was incredibly friendly, and the location was perfect for exploring Tarkwa. I'll definitely be staying here again.",
+    author: "Sarah Johnson",
+  },
+  {
+    quote: "What a wonderful experience! From check-in to check-out, everything was seamless. The hotel's amenities exceeded my expectations and the breakfast was absolutely delicious.",
+    author: "Michael Addo",
+  },
+  {
+    quote: "Crystal Ark Hotel provided the perfect blend of comfort and luxury. The attention to detail in every aspect of our stay made it truly memorable. Highly recommended!",
+    author: "Akosua Mensah",
+  }
+];
   const ViewMore = (indexNum: number) => {
     navigate(`/Rooms/${indexNum}`);
   };
@@ -112,7 +121,7 @@ const Homepage = () => {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  flex flex-col gap-4  items-center  md:h-[100%] justify-center md:px-10  md-py-[1px] line-clamp-5 "
             >
               <h1 id="heading" className="md:text-5xl  text-5xl   text-white ">
-                Premiew View Hotel
+              Premier Hotel
               </h1>
 
               <span className="">
@@ -123,14 +132,14 @@ const Homepage = () => {
                 </div>
               </span>
 
-              <span className="flex flex-row gap-2   items-center">
-                <Link to="/booking">
-                  {" "}
-                  <button className="bg-black text-white w-[100px] md:w-[150px] md:text-xl border-black  md:text-normal text-[14px]  border-2 shadow-md md:p-2 p-2">
-                    Book
-                  </button>
-                </Link>
-              </span>
+       <span className="flex flex-row gap-2 items-center">
+  <Link to="/booking">
+    <button className="px-6 py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2">
+      READ MORE
+      <FaArrowRight className="text-sm" />
+    </button>
+  </Link>
+</span>
             </div>
           </div>
 
@@ -148,56 +157,66 @@ const Homepage = () => {
               className={`dot ${slideIndex === 3 ? "active" : ""}`}
             />
           </div>
+<motion.img
+  src={picture.imageUrl} // fallback
+  srcSet={`
+    ${picture.imageUrl}?w=800 800w,
+    ${picture.imageUrl}?w=1600 1600w,
+    ${picture.imageUrl}?w=2400 2400w
+  `}
+  sizes="100vw"
+  alt="background"
+  loading="lazy"
+  initial={{ scale: 1 }}
+  whileHover={{ scale: 1.02 }}
+  transition={{ duration: 0.3 }}
+  className="group cursor-pointer object-cover w-full h-screen"
+/>
 
-          <motion.img
-            src={picture.imageUrl}
-            alt="background"
-            loading="lazy"
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-            className="group cursor-pointer  object-cover   w-full sm:h-screen h-[100%] "
-          />
         </motion.div>
       ))}
+<div className="p-4 mt-10">
+  <h1 className="text-center font-semibold text-[30px] mb-4 text-[#5F9C33]">
+    OUR ROOMS
+  </h1>
 
-      <div className="p-4 mt-10">
-        <h1 className="text-center font-semibold text-[30px] mb-4">
-          OUR ROOMS
-        </h1>
+  <div className="md:grid md:grid-cols-3 flex flex-col gap-6 w-fit mx-auto">
+    {Rooms.map((content) => (
+      <div
+        key={content.id}
+        className="border-[1px] border-[#CE9E37] shadow-sm rounded relative overflow-hidden"
+      >
+        <motion.img
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          loading="lazy"
+          src={content.imgUrl}
+          className="md:w-[400px] h-[300px] object-cover cursor-pointer"
+          alt=""
+        />
 
-        <div className="md:grid md:grid-cols-3 flex flex-col gap-6  w-fit mx-auto">
-          {Rooms.map((content) => (
-            <div
-              key={content.id}
-              className="border-[1px] border-gray-300 shadow-sm rounded  relative overflow-hidden"
-            >
-              <motion.img
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                loading="lazy"
-                src={content.imgUrl}
-                className="md:w-[400px] object-cover cursor-pointer"
-                alt=""
-              />
+        <span className="flex flex-row justify-between py-4 items-center p-2">
+          <h2 className="uppercase font-serif font-semibold tracking-wider text-lg text-[#4A5568]">
+            {content.title}
+          </h2>
 
-              <span className="flex flex-row justify-between py-4 items-center p-2">
-                <h2 className="uppercase font-serif font-semibold tracking-wider text-lg"> {content.title}</h2>
+          <button 
+            onClick={() => ViewMore(content.id)}
+            className="px-4 py-2 font-semibold bg-[#5F9C33] text-white text-sm border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+          >
+            VIEW DETAILS
+            <FaChevronRight className="text-sm" />
+          </button>
+        </span>
 
-                <button 
-                  onClick={() => ViewMore(content.id)}
-                  className="bg-black rounded text-white p-2 text-[0.8rem] font-semibold text-md font-serif tracking-wider"
-                >
-                  VIEW DETAILS
-                </button>
-              </span>
-
-              <h2 className="text-black text-[20px] font-serif absolute top-0 left-0 border-l-0 border-t-0 bg-white p-1 rounded-lg shadow-md "> GH{content.price} / night</h2>
-            </div>
-          ))}
-        </div>
+        <h2 className="text-[#5F9C33] text-[20px] font-serif absolute top-0 left-0 border-l-0 border-t-0 bg-white p-1 rounded-lg shadow-md">
+          GH{content.price} / night
+        </h2>
       </div>
+    ))}
+  </div>
+</div>
 
       <Suspense fallback={<div>loading</div>}>
         <Section />
@@ -205,7 +224,7 @@ const Homepage = () => {
 
       <div className="flex flex-col gap-12 py-20  px-4 items-center mt-10">
         <span className="">
-          <h1 className="font-bold md:text-[2.6rem] text-[20px]">
+          <h1 className="text-center font-semibold text-[30px] mb-4 text-[#5F9C33]">
             {" "}
             Our Testimonials
           </h1>
@@ -215,15 +234,15 @@ const Homepage = () => {
         </span>
         <div className="flex md:flex-row flex-col gap-2 mb-20">
           <Suspense fallback={<div>loading</div>}>
-            <AboutSection {...testimonialData} />
-            <AboutSection {...testimonialData} />
-            <AboutSection {...testimonialData} />
+              <AboutSection {...testimonialData[0]} />
+    <AboutSection {...testimonialData[1]} />
+    <AboutSection {...testimonialData[2]} />
           </Suspense>
         </div>{" "}
       </div>
 
       <div className="mt-10">
-        <h1 className="text-center font-medium text-[25px] mb-10">
+        <h1 className="text-center font-medium text-[25px] mb-10 text-[#5F9C33]">
           OUR GALLERY
         </h1>
         <div className=" gap-6  w-fit mx-auto p-2">

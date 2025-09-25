@@ -1,29 +1,29 @@
-interface SectionContents{
-    id:number,
-    text:string,
-    content:string,
-    subtext?:string
+interface SectionContents {
+  id: number;
+  text: string;
+  content: string;
+  subtext?: string;
 }
-export const SectionContents:SectionContents[] = [
-    { 
-        id:1,
-        text:'Restaurant',
-content:'Have a taste of our finest dishes both local and continental, let your taste buds do the talking.'},
 
- {
-        id:2,
-    
-        text:'Executive Lounge',
-        content:'A serene beautiful setting to have some drinks with family and friends or just have quality time with yourself.'
-    },
-    {
-        id:3,
-      text: 'Conference Room',
-      content:'A professional space to have your important meetings. Fully equipped to ensure a successful presentation.'
-    },
-    {
-        id:4,
-      text: 'Swimming Pool',
-      content:'Having a hot day? Our swimming pool is nice place to relax and cool off.'
-    },
-  ];
+export const SectionContents: SectionContents[] = [
+  { 
+    id: 1,
+    text: 'Accommodation',
+    content: 'Enjoy spacious, comfortable rooms designed to make your stay feel like home, whether for business or leisure.'
+  },
+  {
+    id: 2,
+    text: 'In-House Laundry',
+    content: 'Take advantage of our reliable same-day laundry service, ensuring you always look your best during your stay.'
+  },
+  {
+    id: 3,
+    text: 'Conference Room',
+    content: 'Host your important meetings in our fully equipped conference room, designed for productivity and success.'
+  },
+  {
+    id: 4,
+    text: 'Complimentary Breakfast & Kitchenette',
+    content: 'Start your day with a freshly prepared breakfast, and enjoy the convenience of an in-room kitchenette for light meals.'
+  },
+];

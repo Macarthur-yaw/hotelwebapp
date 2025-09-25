@@ -1,7 +1,6 @@
-import imageOne from '../assets/NO1OXFORD0124.jpg'
+
 import imageTwo from '../assets/NUMBER-ONE-OXFORD02639.jpeg'
-import imageThree from '../assets/pexels-eduardo-romero-3124079.jpg'
-import imageFour from '../assets/pic4.jpg'
+
 interface Images{
     id:number,
     imgUrl:string
@@ -9,15 +8,15 @@ interface Images{
 }
 export const Images = [ 
     {id:1,
-imgUrl:imageOne
+imgUrl:'https://res.cloudinary.com/dnwyppsef/image/upload/v1758779487/rooms_tx8acm.jpg'
 },{
     id:2,
 imgUrl:imageTwo
 },{
     id:3,
-    imgUrl:imageThree
+    imgUrl:'https://res.cloudinary.com/dnwyppsef/image/upload/v1758779627/conference_ukzvb6.jpg'
 },{
     id:4,
-    imgUrl:imageFour
+    imgUrl:'https://res.cloudinary.com/dnwyppsef/image/upload/v1758779565/kitchen_jjmyjw.jpg'
 }
 ]

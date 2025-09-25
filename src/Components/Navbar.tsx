@@ -119,21 +119,25 @@ const Navbar = () => {
                             initial="closed"
                             animate="open"
                             exit="closed"
-                            className="fixed right-0 top-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-white to-gray-50 shadow-2xl z-50 md:hidden"
+                            className="fixed right-0 top-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-white to-[#F7FAFC] shadow-2xl z-50 md:hidden"
                         >
                             {/* Header */}
-                            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                            <div className="flex items-center justify-between p-6 border-b border-[#E2E8F0]">
                                 <div className="flex flex-col">
-                                    <h2 className="text-xl font-bold text-gray-800">Menu</h2>
-                                    <p className="text-sm text-gray-500">Hotel Logo</p>
+                                     <img
+                        src="https://res.cloudinary.com/dnwyppsef/image/upload/v1758774583/logo-removebg-preview_tykgc6.png"
+                        alt="Crystal Ark Hotel Logo"
+                        className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                    />
+                                    <p className="text-sm text-[#718096]">Crystal Ark Hotel</p>
                                 </div>
                                 <motion.button
                                     whileHover={{ scale: 1.1, rotate: 90 }}
                                     whileTap={{ scale: 0.9 }}
                                     onClick={() => setDisplay(false)}
-                                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+                                    className="p-2 rounded-full bg-[#F7FAFC] hover:bg-[#EDF2F7] transition-colors duration-200"
                                 >
-                                    <FaTimes className="text-gray-600 text-xl" />
+                                    <FaTimes className="text-[#718096] text-xl" />
                                 </motion.button>
                             </div>
 
@@ -151,7 +155,7 @@ const Navbar = () => {
                                             <Link 
                                                 to={item.to} 
                                                 onClick={handleLinkClick}
-                                                className="group flex items-center px-4 py-3 rounded-xl text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-black transition-all duration-300 font-medium"
+                                                className="group flex items-center px-4 py-3 rounded-xl text-[#4A5568] hover:text-white hover:bg-gradient-to-r hover:from-[#5F9C33] hover:to-[#CE9E37] transition-all duration-300 font-medium"
                                             >
                                                 <span className="group-hover:translate-x-2 transition-transform duration-300">
                                                     {item.label}
@@ -174,7 +178,7 @@ const Navbar = () => {
                                     variants={linkVariants}
                                     initial="closed"
                                     animate="open"
-                                    className="mt-8 pt-6 border-t border-gray-200"
+                                    className="mt-8 pt-6 border-t border-[#E2E8F0]"
                                 >
                                     <motion.button
                                         whileHover={{ scale: 1.02 }}
@@ -183,7 +187,7 @@ const Navbar = () => {
                                             navigate('/booking');
                                             setDisplay(false);
                                         }}
-                                        className="w-full bg-gradient-to-r from-gray-800 to-black text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                                        className="w-full bg-gradient-to-r from-[#5F9C33] to-[#CE9E37] text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                                     >
                                         BOOK US NOW
                                     </motion.button>
@@ -196,7 +200,7 @@ const Navbar = () => {
                                     transition={{ delay: 0.5, type: "spring" }}
                                     className="mt-8 flex justify-center"
                                 >
-                                    <div className="w-12 h-1 bg-gradient-to-r from-gray-300 to-gray-500 rounded-full"></div>
+                                    <div className="w-12 h-1 bg-gradient-to-r from-[#5F9C33] to-[#CE9E37] rounded-full"></div>
                                 </motion.div>
                             </div>
                         </motion.nav>
@@ -206,14 +210,23 @@ const Navbar = () => {
 
             {/* Main navbar */}
             <nav className={`${scrollPosition > 100 ? 'bg-white text-black shadow-lg' : 'bg-transparent text-white'} fixed flex flex-row w-full p-4 md:z-20 ${display ? 'z-30' : 'z-20'} top-0 md:justify-around justify-between items-center transition-all duration-300`}>
-                <motion.span 
-                    className="font-semibold text-center text-[18px] flex flex-col"
+                {/* Logo and Brand Name */}
+                <motion.div 
+                    className="flex items-center space-x-3 cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    onClick={() => navigate('/')}
                 >
-                    <h1 id='heading' className="font-medium text-[30px]">Hotel</h1> 
-                    <h3 className="text-sm opacity-80">Logo</h3> 
-                </motion.span>
+                    <img
+                        src="https://res.cloudinary.com/dnwyppsef/image/upload/v1758774583/logo-removebg-preview_tykgc6.png"
+                        alt="Crystal Ark Hotel Logo"
+                        className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                    />
+                    <div className="flex flex-col">
+                        <h1 id='heading' className="font-medium text-[20px] md:text-[24px] leading-tight">Crystal Ark</h1> 
+                        <h3 className="text-xs md:text-sm opacity-80 -mt-1">Hotel</h3> 
+                    </div>
+                </motion.div>
 
                 {/* Enhanced hamburger menu for mobile */}
                 <motion.button
@@ -255,7 +268,7 @@ const Navbar = () => {
                     {menuItems.map((item) => (
                         <Link key={item.to} to={item.to}>
                             <motion.li 
-                                className="hover:text-gray-400 transition-colors duration-200 cursor-pointer"
+                                className="hover:text-[#CE9E37] transition-colors duration-200 cursor-pointer"
                                 whileHover={{ y: -2 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                             >
@@ -268,8 +281,8 @@ const Navbar = () => {
                 <motion.button
                     id='header'
                     onClick={() => navigate('/booking')}
-                    className="hidden md:block border-[1px] p-[8px] font-semibold bg-white text-[0.8rem] text-black border-black hover:bg-gray-100 transition-all duration-200"
-                    whileHover={{ scale: 1.05, boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }}
+                    className="hidden md:block border-[1px] p-[8px] font-semibold bg-[#5F9C33]  text-[0.8rem] text-white border-[#CE9E37] border-[2px] hover:shadow-lg transition-all duration-200"
+                    whileHover={{ scale: 1.05, boxShadow: "0 4px 20px rgba(95,156,51,0.3)" }}
                     whileTap={{ scale: 0.98 }}
                 >
                     BOOK US NOW
