@@ -155,7 +155,7 @@ const Navbar = () => {
                                             <Link 
                                                 to={item.to} 
                                                 onClick={handleLinkClick}
-                                                className="group flex items-center px-4 py-3 rounded-xl text-[#4A5568] hover:text-white hover:bg-gradient-to-r hover:from-[#5F9C33] hover:to-[#CE9E37] transition-all duration-300 font-medium"
+                                                className="group flex items-center px-4 py-3 rounded-xl text-[#4A5568] hover:text-white hover:bg-[#5F9C33]  transition-all duration-300 font-medium"
                                             >
                                                 <span className="group-hover:translate-x-2 transition-transform duration-300">
                                                     {item.label}
@@ -187,21 +187,13 @@ const Navbar = () => {
                                             navigate('/booking');
                                             setDisplay(false);
                                         }}
-                                        className="w-full bg-gradient-to-r from-[#5F9C33] to-[#CE9E37] text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                                       className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
                                     >
                                         BOOK US NOW
                                     </motion.button>
                                 </motion.div>
 
-                                {/* Decorative element */}
-                                <motion.div
-                                    initial={{ scale: 0, rotate: -180 }}
-                                    animate={{ scale: 1, rotate: 0 }}
-                                    transition={{ delay: 0.5, type: "spring" }}
-                                    className="mt-8 flex justify-center"
-                                >
-                                    <div className="w-12 h-1 bg-gradient-to-r from-[#5F9C33] to-[#CE9E37] rounded-full"></div>
-                                </motion.div>
+                              
                             </div>
                         </motion.nav>
                     </>

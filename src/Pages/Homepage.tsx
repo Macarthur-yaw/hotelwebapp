@@ -112,70 +112,51 @@ const Homepage = () => {
           transition={{ duration: 2 }}
           className={`${
             picture.id === slideIndex ? "block" : "hidden"
-          } relative  items-center flex md:flex-row flex-col justify-evenly md:justify-around w-full h-screen`}
+          } relative w-full h-[100vh] aspect-square overflow-hidden bg-black`}
         >
-          <div className="bg-black bg-opacity-30 absolute w-full h-screen"></div>
-          <div className=" ">
-            <div
-              key={picture.id}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  flex flex-col gap-4  items-center  md:h-[100%] justify-center md:px-10  md-py-[1px] line-clamp-5 "
-            >
-              <h1 id="heading" className="md:text-5xl  text-5xl   text-white ">
-              Premier Hotel
+          {/* Video Background */}
+          <motion.video
+            src="https://res.cloudinary.com/dnwyppsef/video/upload/v1759045265/chipclamp_vkh65s.mp4"
+            className="absolute -top-12 left-1/2 min-w-full h-[110vh] w-auto  transform -translate-x-1/2  z-0"
+            style={{ objectFit: 'cover' }}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          
+          {/* Content Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="flex flex-col gap-4 items-center text-center px-4">
+              <h1 id="heading" className="md:text-5xl text-5xl text-white">
+                Premier Hotel
               </h1>
 
-              <span className="">
-                <div className="w-max  mx-auto">
-                  <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-white pr-2 text-[12px] md:text-xl text-white text-opacity-90 font--semibold">
-                    {picture.content}
-                  </h1>
-                </div>
-              </span>
+              <div className="w-max mx-auto">
+                <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-white pr-2 text-[12px] md:text-xl text-white text-opacity-90 font-semibold">
+                  {picture.content}
+                </h1>
+              </div>
 
-       <span className="flex flex-row gap-2 items-center">
-  <Link to="/booking">
-    <button className="px-6 py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2">
-      READ MORE
-      <FaArrowRight className="text-sm" />
-    </button>
-  </Link>
-</span>
+              <div className="flex flex-row gap-2 items-center">
+                <Link to="/booking">
+                  <button className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2">
+                    EXPLORE ROOMS
+                    <FaArrowRight className="text-sm" />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div className="absolute md:right-10 md:top-1/2 bottom-0 transform -translate-y-1/2 flex md:flex-col flex-row gap-2 items-center">
-            <span
-              onClick={() => setSlideIndex(1)}
-              className={`dot ${slideIndex === 1 ? "active" : ""}`}
-            />
-            <span
-              onClick={() => setSlideIndex(2)}
-              className={`dot ${slideIndex === 2 ? "active" : ""}`}
-            />
-            <span
-              onClick={() => setSlideIndex(3)}
-              className={`dot ${slideIndex === 3 ? "active" : ""}`}
-            />
-          </div>
-<motion.img
-  src={picture.imageUrl} // fallback
-  srcSet={`
-    ${picture.imageUrl}?w=800 800w,
-    ${picture.imageUrl}?w=1600 1600w,
-    ${picture.imageUrl}?w=2400 2400w
-  `}
-  sizes="100vw"
-  alt="background"
-  loading="lazy"
-  initial={{ scale: 1 }}
-  whileHover={{ scale: 1.02 }}
-  transition={{ duration: 0.3 }}
-  className="group cursor-pointer object-cover w-full h-screen"
-/>
 
+          <div className="absolute bottom-0 bg-white w-full h-[60px]">
+
+          </div>
         </motion.div>
       ))}
-<div className="p-4 mt-10">
+
+<div className="-mt-2">
   <h1 className="text-center font-semibold text-[30px] mb-4 text-[#5F9C33]">
     OUR ROOMS
   </h1>
