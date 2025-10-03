@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"; 
 import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import bgOne from "../assets/bgOne.jpg";
+
 import { Rooms as RoomConst } from "../Constant/Rooms";
 import { motion } from "framer-motion";
 
@@ -26,7 +26,8 @@ const Roompage = () => {
       {/* Banner */}
       <div className="relative">
         <img
-          src={bgOne}
+          src='https://res.cloudinary.com/dnwyppsef/image/upload/v1759484151/premi_wzvraa.jpg'
+        
           className="w-full h-[100px] md:h-[250px] object-cover"
         />
         <span className="absolute bottom-2 md:bottom-10 left-1/2 transform -translate-x-1/2">

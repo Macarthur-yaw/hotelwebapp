@@ -1,4 +1,4 @@
-import bgOne from '../assets/Gallery4.jpg'
+
 import picOne from '../assets/home.jpeg'
 
 const About = () => {
@@ -6,7 +6,7 @@ const About = () => {
     return ( 
  <div>
       <div className="relative">
-      <img src={bgOne} className='w-full h-[100px] md:h-[250px] object-cover'/>   
+      <img src="https://res.cloudinary.com/dnwyppsef/image/upload/v1759484151/premi_wzvraa.jpg" className='w-full h-[100px] md:h-[250px] object-cover'/>   
      <span className="absolute bottom-2 md:bottom-10 left-1/2 transform  -translate-x-1/2">
 <h1 id="header" className="font-medium text-[1.5rem] md:text-[3rem] text-white border-b-2 ">Premier Hotel</h1>
      </span>

@@ -14,7 +14,7 @@ import { ImageGallery } from "../Constant/ImageGallery";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowRight, FaChevronRight } from "react-icons/fa";
 
-import BgVideo from "../assets/videoclip.mp4"
+
 // const Location = lazy(() => import("../Components/Location"));
 
 
@@ -118,8 +118,8 @@ const Homepage = () => {
         >
           {/* Video Background */}
           <motion.video
-            src={BgVideo}
-            className="absolute -top-16 left-1/2 min-w-full h-[125vh] w-auto  transform -translate-x-1/2  z-0"
+            src="https://res.cloudinary.com/dnwyppsef/video/upload/v1759521305/videoclip_ysleh1.mp4"
+            className="absolute -top-16 left-1/2 min-w-full h-[130vh] w-auto  transform -translate-x-1/2  z-0"
             style={{ objectFit: 'cover' }}
             autoPlay
             muted
@@ -128,7 +128,7 @@ const Homepage = () => {
           />
           
           {/* Content Overlay */}
-          <div className="absolute inset-0 bg-black/10 flex items-center justify-center z-10">
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10">
             <div className="flex flex-col gap-4 items-center text-center px-4">
               <h1 id="heading" className="md:text-5xl text-5xl text-white   ">
                 Premier Hotel
@@ -152,7 +152,7 @@ const Homepage = () => {
           </div>
 
 
-          <div className="absolute bottom-0 bg-white w-full h-[60px]">
+          <div className="absolute bottom-0 bg-white w-full h-[60px] z-30">
 
           </div>
         </motion.div>

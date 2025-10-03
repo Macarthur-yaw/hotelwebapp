@@ -1,7 +1,7 @@
 // import { ImageGallery } from "../Constant/ImageGallery";
 // import { RoomCards } from '../Components/RoomCards';
 import { useNavigate } from "react-router-dom";
-import bgOne from "../assets/Gallery4.jpg";
+
 // import picOne from '../assets/aboutpic.jpg'
 // import picTwo from '../assets/aboutpic1.jpg'
 // import picThree from '../assets/aboutpic2.jpg'
@@ -16,7 +16,7 @@ const Rooms = () => {
     <div>
       <div className="relative">
         <img
-          src={bgOne}
+          src="	https://res.cloudinary.com/dnwyppsef/image/upload/v1759484151/premi_wzvraa.jpg"
           className="w-full h-[100px] md:h-[250px] object-cover"
         />
         <span className="absolute bottom-2 md:bottom-10 left-1/2 transform  -translate-x-1/2">

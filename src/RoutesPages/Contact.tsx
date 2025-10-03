@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import bgOne from '../assets/Gallery5.jpg'
+
 import {FaMapMarker,FaPhoneAlt,FaEnvelope} from 'react-icons/fa'
 import { motion,AnimatePresence } from 'framer-motion';
 const Contact = () => {
@@ -8,7 +8,7 @@ const Contact = () => {
         <div >
 
 <div className="relative">
-      <img src={bgOne} className='w-full h-[100px] md:h-[250px] object-cover' loading='lazy'/>   
+      <img src="	https://res.cloudinary.com/dnwyppsef/image/upload/v1759484151/premi_wzvraa.jpg" className='w-full h-[100px] md:h-[250px] object-cover' loading='lazy'/>   
      <span className="absolute bottom-2 md:bottom-10 left-1/2 transform  -translate-x-1/2">
 <h1 id="header" className="font-medium text-[1.5rem] md:text-[3rem] text-white border-b-2 ">Contact us</h1>
      </span>
