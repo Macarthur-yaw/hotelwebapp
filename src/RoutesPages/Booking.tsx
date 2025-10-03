@@ -409,8 +409,8 @@ export default function Booking(): JSX.Element {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-black hover:bg-gray-900 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-200 transform hover:scale-105 shadow-lg"
-            >
+                  className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+                >
               Complete Reservation
             </button>
             <p className="mt-4 text-sm text-gray-600">

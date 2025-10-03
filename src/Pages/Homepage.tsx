@@ -13,6 +13,8 @@ import { Rooms } from "../Constant/Rooms";
 import { ImageGallery } from "../Constant/ImageGallery";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowRight, FaChevronRight } from "react-icons/fa";
+
+import BgVideo from "../assets/videoclip.mp4"
 // const Location = lazy(() => import("../Components/Location"));
 
 
@@ -116,8 +118,8 @@ const Homepage = () => {
         >
           {/* Video Background */}
           <motion.video
-            src="https://res.cloudinary.com/dnwyppsef/video/upload/v1759045265/chipclamp_vkh65s.mp4"
-            className="absolute -top-12 left-1/2 min-w-full h-[110vh] w-auto  transform -translate-x-1/2  z-0"
+            src={BgVideo}
+            className="absolute -top-16 left-1/2 min-w-full h-[125vh] w-auto  transform -translate-x-1/2  z-0"
             style={{ objectFit: 'cover' }}
             autoPlay
             muted
@@ -126,9 +128,9 @@ const Homepage = () => {
           />
           
           {/* Content Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="absolute inset-0 bg-black/10 flex items-center justify-center z-10">
             <div className="flex flex-col gap-4 items-center text-center px-4">
-              <h1 id="heading" className="md:text-5xl text-5xl text-white">
+              <h1 id="heading" className="md:text-5xl text-5xl text-white   ">
                 Premier Hotel
               </h1>
 
@@ -156,7 +158,7 @@ const Homepage = () => {
         </motion.div>
       ))}
 
-<div className="-mt-2">
+<div className="-mt-2 ">
   <h1 className="text-center font-semibold text-[30px] mb-4 text-[#5F9C33]">
     OUR ROOMS
   </h1>

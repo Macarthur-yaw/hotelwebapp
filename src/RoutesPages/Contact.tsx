@@ -83,8 +83,8 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="mt-6 bg-black text-white py-2 px-4  hover:bg-black rounded transition-all"
-        >
+            className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+                                       >
           Submit
         </button>
       </form> 
@@ -100,24 +100,24 @@ const Contact = () => {
 
 <div className='flex md:flex-row flex-col gap-2 justify-evenly bg-gray-50 bg-opacity-95 py-20 '>
     <span className=' flex  flex-col items-center gap-[2px] p-2'>
- <span className=' text-[#222222] text-3xl'><FaMapMarker /></span>
-<h1 className='text-[#222222] font-medium text-xl'>Location</h1>
+ <span className=' text-[#CE9E37] text-3xl'><FaMapMarker /></span>
+<h1 className='text-[#CE9E37] font-medium text-xl'>Location</h1>
 <h2 className='text-[#222222] font-normal text-[0.9rem]'>
-    Tarkwa,Ghana
+    Teshie Regal street, Agbelezaa-Manet road
 </h2>
     </span>
 
     <span className='flex flex-col items-center gap-[2px] p-2'>
-      <span className=' text-[#222222] text-3xl'>  <FaPhoneAlt /></span>
-        <h1 className='text-[#222222] font-medium text-xl'>Call</h1>
-        <h2 className='text-[#222222] font-normal text-[0.9rem]'>+233 599 293 572</h2>
+      <span className=' text-[#CE9E37] text-3xl'>  <FaPhoneAlt /></span>
+        <h1 className='text-[#CE9E37] font-medium text-xl'>Call</h1>
+        <h2 className='text-[#222222] font-normal text-[0.9rem]'>+233 030 272 6007</h2>
     </span>
 
     <span className='flex flex-col items-center gap-[2px] p-2'>
-      <span className='text-3xl text-[#222222]'>        <FaEnvelope /></span>
+      <span className='text-3xl text-[#CE9E37]'>        <FaEnvelope /></span>
 
-        <h1 className='text-[#222222] font-medium text-xl'>Email</h1>
-        <h2 className='text-[#222222] font-normal text-[0.9rem]'>arthurkevin1260@gmail.com</h2>
+        <h1 className='text-[#CE9E37] font-medium text-xl'>Email</h1>
+        <h2 className='text-[#222222] font-normal text-[0.9rem]'>crystalarkhotel@gmail.com</h2>
     </span>
 </div>
    </div>     </div>

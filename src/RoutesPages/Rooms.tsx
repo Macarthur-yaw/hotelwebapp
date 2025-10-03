@@ -35,7 +35,7 @@ const Rooms = () => {
          {RoomsConst.map((content) => (
             <div
               key={content.id}
-              className="border-[1px] border-gray-300 shadow-sm rounded  relative overflow-hidden"
+                className="border-[1px] border-[#CE9E37] shadow-sm rounded relative overflow-hidden"
             >
               <motion.img
                 initial={{ scale: 1 }}
@@ -52,7 +52,8 @@ const Rooms = () => {
 
                 <button 
                   onClick={() => ViewMore(content.id)}
-                  className="bg-black rounded text-white p-2 text-[0.8rem] font-semibold text-md font-serif tracking-wider"
+                    className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+                                    
                 >
                   VIEW DETAILS
                 </button>

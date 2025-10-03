@@ -1,12 +1,12 @@
-import galleryOne from '../assets/move1.jpeg';
-import galleryTwo from '../assets/move2.jpeg';
-import galleryThree from '../assets/move3.jpeg';
-import galleryFour from '../assets/Gallery4.jpg';
-import galleryFive from '../assets/Gallery5.jpg';
-import gallerySix from '../assets/Gallery6.jpg';
-import gallerySeven from '../assets/pexels-colon-freld-2373201.jpg'
-import galleryEight from '../assets/pexels-eduardo-romero-3124079.jpg'
-import galleryNine from '../assets/pexels-naim-benjelloun-2029698.jpg'
+import galleryOne from '../assets/standard1.jpeg';
+import galleryTwo from '../assets/standard2.jpeg';
+import galleryThree from '../assets/standard3.jpeg';
+import galleryFour from '../assets/standard4.jpeg';
+import galleryFive from '../assets/gallery3.jpeg';
+import gallerySix from '../assets/gallery3.jpeg';
+import gallerySeven from '../assets/gallery4.jpeg'
+import galleryEight from '../assets/gallery6.jpeg'
+import galleryNine from '../assets/gallery4.jpeg'
 interface ImageGallery{
     id:number,
     // imgUrl:string,

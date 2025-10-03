@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion } from "framer-motion";
 
 const Gallery = () => {
-  const [index, setIndex] = useState<number>(0);
+  const [index] = useState<number>(0);
   const [all, setAll] = useState<boolean>(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState<number>(0);
@@ -36,10 +36,7 @@ const Gallery = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [selectedImageIndex]);
 
-  const handleIndex = (indexNum: number) => {
-    setIndex(indexNum)
-    setAll(false);
-  }
+ 
 
   const openImageModal = (imageUrl: string) => {
     const imageIndex = allGalleryImages.findIndex(url => url === imageUrl);
@@ -81,30 +78,30 @@ const Gallery = () => {
       </div>
 
       <div className="md:px-4 mx-auto w-fit mt-10 flex flex-row gap-4 px-4">
-        <button 
+        {/* <button 
           onClick={() => setAll(true)}   
-          className="border-[1px] rounded sm:px-8 px-4 py-[2px] border-black bg-black text-white text-[12px] sm:text-[14px]"
-        >
+              className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+                >
           All
-        </button>
-        <button 
+        </button> */}
+        {/* <button 
           onClick={() => handleIndex(2)} 
-          className="border-[1px] rounded sm:px-8 px-4 border-black text-white bg-black text-[12px] sm:text-[14px]"
-        >
+              className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+               >
           Restaurant
         </button>
         <button 
           onClick={() => handleIndex(3)} 
-          className="border-[1px] rounded sm:px-8 p-2 bg-black text-white text-[14px] sm:text-[14px]"
-        >
+             className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+                >
           Gym
         </button>
         <button  
           onClick={() => handleIndex(4)} 
-          className="border-[1px] rounded sm:px-8 px-4 bg-black text-white text-[12px] sm:text-[14px]"
-        >
+              className="px-6 cursor-pointer py-2 md:px-8 md:py-3 font-semibold bg-[#5F9C33] text-white text-sm md:text-base border-2 border-[#CE9E37] hover:bg-[#CE9E37] hover:border-[#5F9C33] transition-colors duration-300 flex items-center gap-2"
+                >
           Swimming pool
-        </button>
+        </button> */}
       </div>
 
       <div className="mt-4 px-4 mb-10">

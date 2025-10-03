@@ -1,5 +1,5 @@
 import bgOne from '../assets/Gallery4.jpg'
-import picOne from '../assets/aboutpic.jpg'
+import picOne from '../assets/home.jpeg'
 
 const About = () => {
   
@@ -15,33 +15,44 @@ const About = () => {
      </div>
      </div>
  
- <div className="mt-10 px-4 flex flex-row  mx-auto  mb-4 gap-4">
+ <div className="mt-10 px-4 flex flex-col  mx-auto  mb-4 gap-4">
  
  <div className='flex flex-col-reverse md:flex-row md:gap-4 items-center gap-2'>
     <img src={picOne} className=' rounded  md:w-[50%] '/>
+
+    <div>
    <span className='flex flex-col items-center '>
     <h1 className='font-medium text-left py-4 text-2xl' id='heading'>About us</h1>
     {/* <p className='font-medium text-xl'>Welcome</p> */}
-<h2 className='text-gray-400 font-medium text-sm '>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, pariatur. Hic repudiandae vel aut provident expedita sunt esse vitae quo aliquid, minus deleniti voluptas enim molestias alias, consequuntur voluptatibus pariatur.
+<p>
+     Welcome to Crystal Ark Hotel
 
-Home
-About Us
-Our Services
-Gallery
-Contact Us
-About Us
-A Place to Remember
+Located in the heart of Accra on Regal Street, Agbelezaa-Manet Road, Crystal Ark Hotel offers a serene escape from the hustle and bustle of city life. Our hotel is strategically situated near top hospitals, shopping malls, and restaurants, making us the perfect choice for both business and leisure travelers.
 
-Longji International Hotel provides a truly unforgettable experience for those with distinctive taste.
+Our Story
 
-Longji International Hotel is a modern, upscale hospitality company that is passionate about ‘making moments’, recognising that small gestures make a big difference to our guests, since 2013. The hotel has 31 rooms: 16 deluxe rooms, 13 Executive Suites and 2 Executive Deluxe rooms.
+At Crystal Ark Hotel, we believe in providing a haven of comfort and relaxation. Our 28 stylishly designed rooms, including Standard, Executive, and Premium Rooms, are equipped with modern amenities to ensure a restful stay. Whether you're visiting for work or play, our hotel's tranquil ambiance and warm hospitality will make you feel right at home.
 
-Whether you are enjoying a refreshing dip in our swimming pool, relaxing with a cocktail in our exclusive Bar, you can expect service that is professional, friendly and attentive without pretention or Fuss.
+Come and experience the Crystal Ark difference. We look forward to welcoming you!
+</p>
 
-For Business or Pleasure, Longji International Hotel is the true home away from home you will never want to leave. 
-</h2>
+
 </span>
+
+<span>
+     <h1 className='font-medium text-left py-4 text-2xl text-center' id='heading'>Our Facilities</h1>
+
+
+     <p>We offer a range of facilities to enhance your stay, including:</p>
+<ol>
+  <li>- Accommodation in our beautifully appointed rooms</li>
+  <li>- In-House Laundry services for your convenience</li>
+  <li>- High-Speed WiFi to stay connected</li>
+  <li>- Delicious Complimentary Breakfast options to start your day off right</li>
+</ol>
+
+</span>
+</div>
  </div>
 
 </div>
