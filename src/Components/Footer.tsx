@@ -3,7 +3,6 @@ import {
   FaEnvelope,
   FaPhoneAlt,
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaMapMarker,
 } from "react-icons/fa";
