@@ -25,7 +25,7 @@ const Footer = () => {
           </h1>
           <p className="text-sm leading-relaxed text-gray-600 max-w-xs">
             We aim to give you the best luxury experience in the heart of
-            Tarkwa. Book your stay now and let us pamper you!
+            Teshie Regal Street, Agbelezaa-Manet road. Book your stay now and let us pamper you!
           </p>
         </div>
 
@@ -85,13 +85,13 @@ const Footer = () => {
             Connect With Us
           </h2>
           <div className="flex space-x-4 text-xl text-gray-700">
-            <a href="/child" className="hover:text-[#CE9E37] transition hover:scale-110 transform duration-200 p-2 rounded-full hover:shadow-lg hover:bg-gray-50">
+            <a href="https://www.facebook.com/share/17PXQz1auR/?mibextid=wwXIfr" className="hover:text-[#CE9E37] transition hover:scale-110 transform duration-200 p-2 rounded-full hover:shadow-lg hover:bg-gray-50">
               <FaFacebook />
             </a>
-            <a href="/home" className="hover:text-[#CE9E37] transition hover:scale-110 transform duration-200 p-2 rounded-full hover:shadow-lg hover:bg-gray-50">
+            {/* <a href="/home" className="hover:text-[#CE9E37] transition hover:scale-110 transform duration-200 p-2 rounded-full hover:shadow-lg hover:bg-gray-50">
               <FaTwitter />
-            </a>
-            <a href="/google" className="hover:text-[#CE9E37] transition hover:scale-110 transform duration-200 p-2 rounded-full hover:shadow-lg hover:bg-gray-50">
+            </a> */}
+            <a href="https://www.instagram.com/crystalarkhotel?igsh=MXBiNThoN29md3pkMQ%3D%3D&utm_source=qr" className="hover:text-[#CE9E37] transition hover:scale-110 transform duration-200 p-2 rounded-full hover:shadow-lg hover:bg-gray-50">
               <FaInstagram />
             </a>
           </div>

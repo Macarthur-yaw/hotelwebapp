@@ -63,7 +63,7 @@ const Homepage = () => {
 
   const testimonialData = [
   {
-    quote: "The service at Crystal Ark Hotel was exceptional! The rooms were spotless, the staff was incredibly friendly, and the location was perfect for exploring Tarkwa. I'll definitely be staying here again.",
+    quote: "The service at Crystal Ark Hotel was exceptional! The rooms were spotless, the staff was incredibly friendly, and the location was perfect for exploring Accra. I'll definitely be staying here again.",
     author: "Sarah Johnson",
   },
   {
@@ -131,12 +131,12 @@ const Homepage = () => {
           <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10">
             <div className="flex flex-col gap-4 items-center text-center px-4">
               <h1 id="heading" className="md:text-5xl text-5xl text-white   ">
-                Premier Hotel
+                Crystal Ark Hotel 
               </h1>
 
               <div className="w-max mx-auto">
                 <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-r-white pr-2 text-[12px] md:text-xl text-white text-opacity-90 font-semibold">
-                  {picture.content}
+                  Unwind in style
                 </h1>
               </div>
 
@@ -158,7 +158,7 @@ const Homepage = () => {
         </motion.div>
       ))}
 
-<div className="-mt-2 ">
+<div className="-mt-2 p-4 ">
   <h1 className="text-center font-semibold text-[30px] mb-4 text-[#5F9C33]">
     OUR ROOMS
   </h1>

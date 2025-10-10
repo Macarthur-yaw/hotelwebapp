@@ -11,11 +11,7 @@ export const SectionContents: SectionContents[] = [
     text: 'Accommodation',
     content: 'Enjoy spacious, comfortable rooms designed to make your stay feel like home, whether for business or leisure.'
   },
-  {
-    id: 2,
-    text: 'In-House Laundry',
-    content: 'Take advantage of our reliable same-day laundry service, ensuring you always look your best during your stay.'
-  },
+  
   {
     id: 3,
     text: 'Conference Room',

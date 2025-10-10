@@ -127,9 +127,9 @@ const Navbar = () => {
                                      <img
                         src="https://res.cloudinary.com/dnwyppsef/image/upload/v1758774583/logo-removebg-preview_tykgc6.png"
                         alt="Crystal Ark Hotel Logo"
-                        className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                        className="w-14 h-14 md:w-14 md:h-14 object-contain"
                     />
-                                    <p className="text-sm text-[#718096]">Crystal Ark Hotel</p>
+                                    <p className="md:text-sm text-[14px] text-[#718096]">Crystal Ark Hotel</p>
                                 </div>
                                 <motion.button
                                     whileHover={{ scale: 1.1, rotate: 90 }}
